@@ -12,11 +12,11 @@ export default function SideBar() {
       <h1 className="text-xl font-bold">Quizzer</h1>
       {/* Nav Bar */}
       <div className="mt-8 flex flex-col gap-3">
-        {navItems.map((item) => {
+        {navItems.map((item) => (
           <div key={item.to}>
             <button>{item.label}</button>
           </div>
-        })}
+        ))}
       </div>
     </div>
   )
