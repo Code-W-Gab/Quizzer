@@ -7,7 +7,7 @@ export default function SideBar() {
   ]
 
   return(
-    <div className="p-3 w-70 h-full">
+    <div className="p-3 w-70 h-full bg-amber-300">
       {/* Title */}
       <h1 className="text-xl font-bold">Quizzer</h1>
       {/* Nav Bar */}
