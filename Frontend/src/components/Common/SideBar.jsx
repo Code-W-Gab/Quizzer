@@ -1,5 +1,8 @@
+import { useState } from "react"
+import { Link, useLocation } from "react-router-dom"
+
 export default function SideBar() {
-  // const [isActive, setIsActive] = useState("")
+  const location = useLocation();
 
   const navItems = [
     { to: '/Exam', label: "Exam"},
@@ -11,12 +14,24 @@ export default function SideBar() {
       {/* Title */}
       <h1 className="text-xl font-bold">Quizzer</h1>
       {/* Nav Bar */}
-      <div className="mt-8 flex flex-col gap-3">
-        {navItems.map((item) => (
-          <div key={item.to}>
-            <button>{item.label}</button>
-          </div>
-        ))}
+      <div className="mt-8 flex flex-col gap-3 ">
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.to
+
+          return(
+            <Link 
+              key={item.to}
+              to={item.to}
+              className={`flex justify-start px-4 py-2 rounded-md w-full transition-colors
+              ${isActive
+                ? "bg-green-500 text-white"
+                : "hover:bg-green-400"
+              }`}
+            >
+              {item.label}
+            </Link>
+          )
+        })}
       </div>
     </div>
   )

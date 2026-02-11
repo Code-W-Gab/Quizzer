@@ -1,5 +1,5 @@
 export default function Exam() {
   return(
-    <div>Exam</div>
+    <div cla>Exam</div>
   )
 }
