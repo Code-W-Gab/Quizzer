@@ -1,6 +1,6 @@
 export default function Header() {
   return(
-    <div className="bg-red-500">
+    <div className="h-12">
       <h1>Quizzer</h1>
     </div>
   )

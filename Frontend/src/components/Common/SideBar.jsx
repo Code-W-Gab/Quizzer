@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { NotepadText } from 'lucide-react'
 import { Link, useLocation } from "react-router-dom"
 
 export default function SideBar() {
@@ -10,9 +10,12 @@ export default function SideBar() {
   ]
 
   return(
-    <div className="p-3 w-70 h-full bg-amber-300">
+    <div className="p-3 w-70 h-full">
       {/* Title */}
-      <h1 className="text-xl font-bold">Quizzer</h1>
+      <h1 className="flex gap-2 items-center text-green-500 font-bold pl-3">
+        <NotepadText />
+        <span className='text-xl'>QUIZZER</span>
+      </h1>
       {/* Nav Bar */}
       <div className="mt-8 flex flex-col gap-3 ">
         {navItems.map((item) => {
@@ -22,7 +25,7 @@ export default function SideBar() {
             <Link 
               key={item.to}
               to={item.to}
-              className={`flex justify-start px-4 py-2 rounded-md w-full transition-colors
+              className={`flex justify-start px-4 py-2 rounded-md w-full transition-colors bg-gray-300
               ${isActive
                 ? "bg-green-500 text-white"
                 : "hover:bg-green-400"
