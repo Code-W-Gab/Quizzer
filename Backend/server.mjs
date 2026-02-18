@@ -3,6 +3,7 @@ dotenv.config()
 import express from 'express'
 import cors from 'cors'
 import connectDB from './config/db.mjs'
+import quizRoutes from './routes/quizRoutes.mjs'
 
 const app = express()
 app.use(express.json())
@@ -12,8 +13,7 @@ app.use(cors())
 connectDB()
 
 // Routes
-// Admin Routes
-// app.use('/admin/task', TaskRoutes) 
+app.use('/api/quiz', quizRoutes)
  
 
 // Global Error Handler
