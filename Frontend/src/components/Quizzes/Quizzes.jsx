@@ -1,14 +1,14 @@
 import AddQuiz from "./AddQuiz";
 import QuizList from "./QuizList";
 
-export default function Quizzes() {
+export default function Quizzes({ quizFolder }) {
   return(
     <div className="h-full bg-gray-300 p-5">
       <div>
         <AddQuiz/>
       </div>
       <div className="mt-8">
-        <QuizList/>
+        <QuizList quizFolder={quizFolder}/>
       </div>
     </div>
   )
