@@ -2,7 +2,7 @@ import { Plus } from "lucide-react";
 import { useState } from "react";
 import AddQuizFolder from "./AddQuizFolder";
 
-export default function AddQuiz() {
+export default function AddQuiz({fetchQuizFolder}) {
   const [isQuizFolderOpen, setIsQuizFolderOpen] = useState(false)
 
   return(
@@ -23,6 +23,7 @@ export default function AddQuiz() {
         <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
           <div className="bg-opacity-25">
             <AddQuizFolder
+              fetchQuizFolder={fetchQuizFolder}
               onClose={() => setIsQuizFolderOpen(false)}
             />
           </div>

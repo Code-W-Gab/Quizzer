@@ -21,7 +21,7 @@ export default function QuizzesPage() {
 
   return(
     <Navigation>
-      <Quizzes quizFolder={quizFolder}/>
+      <Quizzes quizFolder={quizFolder} fetchQuizFolder={fetchQuizFolder}/>
     </Navigation>
   )
 }
