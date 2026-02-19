@@ -10,7 +10,7 @@ export default function App() {
         <Route path="/" element={<Navigate to='/Exam'/>}/>
         <Route path="/Exam" element={<ExamPage/>}/>
         <Route path="/Quizzes" element={<QuizzesPage/>}/>
-        <Route path="/Quizzes/:id" element={<ShowQuizPage/>}/>
+        <Route path="/Quizzes/:name/:id" element={<ShowQuizPage/>}/>
       </Routes>
     </main>
   )

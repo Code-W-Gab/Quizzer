@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { addQuizFolder } from '../../services/quizService'
+import { addQuizFolder } from '../../../services/quizService'
 import toast from 'react-hot-toast'
 
 

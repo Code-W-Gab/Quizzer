@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navigation from "../../components/Common/Navigation";
-import Quizzes from "../../components/Quizzes/Quizzes";
+import Quizzes from "../../components/Quizzes/Folder/Quizzes";
 import { getQuizFolder } from '../../services/quizService'
 import { useEffect } from "react";
 

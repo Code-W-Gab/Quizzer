@@ -2,7 +2,7 @@ import { Plus } from "lucide-react";
 import { useState } from "react";
 import AddQuizFolder from "./AddQuizFolder";
 
-export default function AddQuiz({fetchQuizFolder}) {
+export default function AddFolder({fetchQuizFolder}) {
   const [isQuizFolderOpen, setIsQuizFolderOpen] = useState(false)
 
   return(
