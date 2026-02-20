@@ -9,8 +9,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navigate to='/Exam'/>}/>
         <Route path="/Exam" element={<ExamPage/>}/>
-        <Route path="/Quizzes" element={<QuizzesPage/>}/>
-        <Route path="/Quizzes/:name/:id" element={<ShowQuizPage/>}/>
+        {/* Quizzes Page */}
+        <Route>
+          <Route path="/Quizzes" element={<QuizzesPage/>}/>
+          <Route path="/Quizzes/:name/:id" element={<ShowQuizPage/>}/>
+        </Route>
       </Routes>
     </main>
   )

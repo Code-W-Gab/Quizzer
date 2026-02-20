@@ -1,16 +1,13 @@
-import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
 import AddQuestionFolder from "./AddQuestionFolder";
+import { useParams } from "react-router-dom";
+import Header from "./Header";
 
 export default function QuestionList({questionFolder}) {
+  const { name } = useParams()
+
   return(
     <div>
-      <div className="flex items-center gap-4 bg-green-500 py-3 px-6">
-        <Link to={"/Quizzes"}>
-          <ArrowLeft />
-        </Link>
-        <h1 className="text-lg font-semibold">Demo Quiz</h1>
-      </div>
+      <Header name={name} to={"/Quizzes"}/>
       <div className="px-6 py-3">
         <AddQuestionFolder/>
         <div className="grid grid-cols-5 gap-5 mt-6">

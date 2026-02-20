@@ -1,9 +1,11 @@
 import { Plus } from "lucide-react"
 import { useState } from "react"
 import AddQuestionDialog from "./AddQuestionDialog"
+import ShortTextDialog from "./ShortTextDialog"
 
 export default function AddQuestionFolder() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isShortTextModalOpen, setIsShortTextModalOpen] = useState(false)
 
   return(
     <div>
@@ -21,7 +23,21 @@ export default function AddQuestionFolder() {
       {isModalOpen && (
         <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
           <div className="bg-opacity-25">
-            <AddQuestionDialog onClose={() => setIsModalOpen(false)}/>
+            <AddQuestionDialog 
+              onClose={() => setIsModalOpen(false)}
+              onOpenShortText={() => {
+                setIsModalOpen(false)
+                setIsShortTextModalOpen(true)
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      {isShortTextModalOpen && (
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
+          <div className="bg-opacity-25">
+            <ShortTextDialog onClose={() => setIsShortTextModalOpen(false)}/>
           </div>
         </div>
       )}
