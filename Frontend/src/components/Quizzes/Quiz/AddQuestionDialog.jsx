@@ -1,19 +1,17 @@
 import { useState } from "react"
-import { useNavigate } from 'react-router-dom';
 
-export default function AddQuestionDialog({onClose, onOpenShortText}) {
+export default function AddQuestionDialog({onClose, onOpenShortText, onOpenMultipleChoice, onOpenTrueFalse}) {
   const [questionType, setQuestionType] = useState("")
-  const navigate = useNavigate()
 
   function handleAddQuestion() {
     if(questionType === "multiple-choice"){
       onClose()
-      navigate("/Quizzes/Multiple-Choice")
+      onOpenMultipleChoice()
     } else if(questionType === "short-text"){
       onOpenShortText()
     } else {
       onClose()
-      navigate("/Quizzes/True-False")
+      onOpenTrueFalse()
     }
   }
 

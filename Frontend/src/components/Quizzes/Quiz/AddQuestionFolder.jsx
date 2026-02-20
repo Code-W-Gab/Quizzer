@@ -2,10 +2,14 @@ import { Plus } from "lucide-react"
 import { useState } from "react"
 import AddQuestionDialog from "./AddQuestionDialog"
 import ShortTextDialog from "./ShortTextDialog"
+import MultipleChoiceDialog from "./MultipleChoiceDialog"
+import TrueFalseDialog from "./TrueFalseDialog"
 
 export default function AddQuestionFolder() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isShortTextModalOpen, setIsShortTextModalOpen] = useState(false)
+  const [isMultipleChoiceModalOpen, setIsMultipleChoiceModalOpen] = useState(false)
+  const [isTrueFalseModalOpen, setIsTrueFalseModalOpen] = useState(false)
 
   return(
     <div>
@@ -29,6 +33,14 @@ export default function AddQuestionFolder() {
                 setIsModalOpen(false)
                 setIsShortTextModalOpen(true)
               }}
+              onOpenMultipleChoice={() => {
+                setIsModalOpen(false)
+                setIsMultipleChoiceModalOpen(true)
+              }}
+              onOpenTrueFalse={() => {
+                setIsModalOpen(false)
+                setIsTrueFalseModalOpen(true)
+              }}
             />
           </div>
         </div>
@@ -38,6 +50,22 @@ export default function AddQuestionFolder() {
         <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
           <div className="bg-opacity-25">
             <ShortTextDialog onClose={() => setIsShortTextModalOpen(false)}/>
+          </div>
+        </div>
+      )}
+
+      {isMultipleChoiceModalOpen && (
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
+          <div className="bg-opacity-25">
+            <MultipleChoiceDialog onClose={() => setIsMultipleChoiceModalOpen(false)}/>
+          </div>
+        </div>
+      )}
+
+      {isTrueFalseModalOpen && (
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
+          <div className="bg-opacity-25">
+            <TrueFalseDialog onClose={() => setIsTrueFalseModalOpen(false)}/>
           </div>
         </div>
       )}
