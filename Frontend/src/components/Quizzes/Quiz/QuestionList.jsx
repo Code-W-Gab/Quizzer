@@ -10,7 +10,7 @@ export default function QuestionList({questionFolder}) {
       <Header name={name} to={"/Quizzes"}/>
       <div className="px-6 py-3">
         <AddQuestionFolder/>
-        <div className="grid grid-cols-5 gap-5 mt-6">
+        <div className="grid grid-cols-4 gap-5 mt-6">
           {questionFolder.map((folder) => {
             return(
               <div key={folder._id} className="bg-gray-200 px-4 py-2 rounded-md">

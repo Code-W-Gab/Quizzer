@@ -1,8 +1,22 @@
 import { useState } from "react"
+import { useParams } from "react-router-dom"
+import { createShortTextQuestion } from "../../../services/quizService"
+import toast from "react-hot-toast"
 
 export default function ShortTextDialog({onClose}) {
   const [question, setQuestion] = useState("")
   const [correctAnswer, setCorrectAnswer] = useState("")
+  const { id } = useParams()
+
+  function handleAddShortText() {
+    createShortTextQuestion(id, question, correctAnswer)
+      .then(res => {
+        toast.success("Added Successfully")
+        console.log(res)
+        onClose()
+      })
+      .catch(err => console.log(err))
+  }
 
   return(
     <div>
@@ -28,7 +42,7 @@ export default function ShortTextDialog({onClose}) {
         </div>    
         <div className="mt-8 mr-2 flex justify-end gap-4 text-md text-green-600">
           <button onClick={onClose}>Back</button>
-          <button>Save</button>
+          <button onClick={handleAddShortText}>Save</button>
         </div>
       </div>
     </div>
