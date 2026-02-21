@@ -22,24 +22,47 @@ export default function ShortTextDialog({onClose}) {
     <div>
       <div className="bg-white w-100 px-4 py-6 rounded-md">
         <h1 className="text-xl font-semibold mb-4">Short Text</h1>
-        <div className="flex flex-col mb-6">
-          <label className="text-lg">Question</label>
+        
+        <div className="relative mb-6">
           <input 
-            className="border-b-2" 
+            className="border-b-2 w-full pt-4 pb-1 border-b-gray-600 text-sm focus:outline-none peer placeholder-transparent
+                       focus:border-green-600" 
             type="text"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
+            placeholder="Question"
+            id="question"
           />
+          <label 
+            htmlFor="question"
+            className="absolute left-0 -top-3 text-sm text-gray-600 transition-all
+                       peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
+                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600"
+          >
+            Question
+          </label>
         </div>
-        <div className="flex flex-col  mb-3">
-          <label className="text-lg">Correct Answer</label>
+
+        <div className="relative mb-3">
           <input 
-            className="border-b-2" 
+            className="border-b-2 w-full pt-4 pb-1 border-b-gray-600 text-sm focus:outline-none peer placeholder-transparent
+                       focus:border-green-600" 
             type="text"
             value={correctAnswer}
             onChange={(e) => setCorrectAnswer(e.target.value)}
+            placeholder="Correct Answer"
+            id="correctAnswer"
           />
-        </div>    
+          <label 
+            htmlFor="correctAnswer"
+            className="absolute left-0 -top-3 text-sm text-gray-600 transition-all
+                       peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
+                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600"
+          >
+            Correct Answer
+          </label>
+        </div>
+
         <div className="mt-8 mr-2 flex justify-end gap-4 text-md text-green-600">
           <button onClick={onClose}>Back</button>
           <button onClick={handleAddShortText}>Save</button>

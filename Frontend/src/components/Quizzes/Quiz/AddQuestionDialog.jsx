@@ -18,10 +18,10 @@ export default function AddQuestionDialog({onClose, onOpenShortText, onOpenMulti
   return(
     <div>
       <div className="bg-white w-80 px-4 py-6 rounded-md">
-        <h1 className="text-xl mb-4">Question Type</h1>
+        <h1 className="text-xl mb-4 font-semibold">Question Type</h1>
         <div className="flex items-center gap-3 mb-3">
           <input 
-            className="size-4" 
+            className="size-5 accent-green-600" 
             type="radio" 
             name="q-type" 
             value={"multiple-choice"}
@@ -31,7 +31,7 @@ export default function AddQuestionDialog({onClose, onOpenShortText, onOpenMulti
         </div>
         <div className="flex items-center gap-3 mb-3">
           <input 
-            className="size-4" 
+            className="size-5 accent-green-600" 
             type="radio" 
             name="q-type"
             value={"short-text"}
@@ -41,7 +41,7 @@ export default function AddQuestionDialog({onClose, onOpenShortText, onOpenMulti
         </div>
         <div className="flex items-center gap-3">
           <input 
-            className="size-4" 
+            className="size-5 accent-green-600" 
             type="radio" 
             name="q-type"
             value={"true-false"}
