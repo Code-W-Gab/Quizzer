@@ -25,7 +25,7 @@ export default function SideBar() {
             <Link 
               key={item.to}
               to={item.to}
-              className={`flex justify-start px-4 py-2 rounded-md w-full transition-colors bg-gray-300
+              className={`flex justify-start px-4 py-2 rounded-md w-full transition-colors
               ${isActive
                 ? "bg-green-500 text-white"
                 : "hover:bg-green-400"

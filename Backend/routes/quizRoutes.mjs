@@ -10,7 +10,8 @@ import {
   createQuestion, 
   getQuestionsByFolder, 
   updateQuestion, 
-  deleteQuestion 
+  deleteQuestion,
+  getQuestionsByMultipleFolders 
 } from '../controllers/quiz/questionController.mjs';
 
 const router = express.Router();
@@ -25,6 +26,7 @@ router.delete('/folders/:id', deleteQuizFolder);
 // Question Routes
 router.post('/questions', createQuestion);
 router.get('/folders/:folderId/questions', getQuestionsByFolder);
+router.post('/questions/multiple-folders', getQuestionsByMultipleFolders);
 router.put('/questions/:id', updateQuestion);
 router.delete('/questions/:id', deleteQuestion);
 

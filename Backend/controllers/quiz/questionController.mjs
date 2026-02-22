@@ -70,3 +70,22 @@ export const deleteQuestion = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// Get questions from multiple folders
+export const getQuestionsByMultipleFolders = async (req, res) => {
+  try {
+    const { folderIds } = req.body;
+
+    if (!folderIds || !Array.isArray(folderIds) || folderIds.length === 0) {
+      return res.status(400).json({ message: 'Folder IDs array is required' });
+    }
+
+    const questions = await Question.find({ 
+      quizFolder: { $in: folderIds } 
+    });
+
+    res.status(200).json({ data: questions });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

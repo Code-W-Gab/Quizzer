@@ -2,7 +2,7 @@ import { FolderClosed } from "lucide-react"
 import { useState } from "react"
 import ExamListDialog from "./ExamListDialog"
 
-export default function ExamList({quizFolder}) {
+export default function ExamList({quizFolder, handleCheckboxChange, selectedQuizzes}) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   
   return(
@@ -17,7 +17,7 @@ export default function ExamList({quizFolder}) {
       {isModalOpen && (
         <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
           <div className="bg-opacity-25">
-            <ExamListDialog onClose={() => setIsModalOpen(false)} quizFolder={quizFolder}/>
+            <ExamListDialog onClose={() => setIsModalOpen(false)} quizFolder={quizFolder} selectedQuizzes={selectedQuizzes} handleCheckboxChange={handleCheckboxChange}/>
           </div>
         </div>
       )}
