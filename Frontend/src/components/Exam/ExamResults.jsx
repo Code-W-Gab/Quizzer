@@ -41,7 +41,7 @@ export default function ExamResults({ score, questions, userAnswers }) {
                 {!isCorrect && (
                   <p className="text-sm">
                     <span className="font-semibold">Correct Answer:</span>{" "}
-                    <span className="text-green-600">{question.correctAnswer}</span>
+                    <span className="text-green-500">{question.correctAnswer}</span>
                   </p>
                 )}
               </div>
