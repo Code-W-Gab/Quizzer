@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function ExamResults({ score, questions, userAnswers }) {
+export default function ExamResults({ score, questions, userAnswers, onRetake }) {
   const navigate = useNavigate();
 
   return (
@@ -49,9 +49,16 @@ export default function ExamResults({ score, questions, userAnswers }) {
           })}
         </div>
 
+        <button 
+          onClick={onRetake}
+          className="w-full bg-green-500 text-white py-3 rounded-md mt-8 font-semibold hover:bg-green-600"
+        >
+          Retake
+        </button>
+        
         <button
           onClick={() => navigate('/Exam')}
-          className="w-full bg-green-500 text-white py-3 rounded-md mt-8 font-semibold hover:bg-green-600"
+          className="w-full bg-green-500 text-white py-3 rounded-md mt-4 font-semibold hover:bg-green-600"
         >
           Back to Exam Page
         </button>

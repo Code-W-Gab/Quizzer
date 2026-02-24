@@ -5,6 +5,16 @@ export const createQuestion = async (req, res) => {
   try {
     const { quizFolder, questionText, questionType, options, correctAnswer } = req.body;
 
+    // Ensure True/False values are capitalized for true-false questions
+    let finalCorrectAnswer = correctAnswer;
+    if (questionType === 'true-false') {
+      if (correctAnswer.toLowerCase() === 'true') {
+        finalCorrectAnswer = 'True';
+      } else if (correctAnswer.toLowerCase() === 'false') {
+        finalCorrectAnswer = 'False';
+      }
+    }
+    
     const question = new Question({
       quizFolder,
       questionText,

@@ -23,7 +23,7 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
       // Before answering
       return userAnswer === option ? 'bg-blue-400 text-white' : 'bg-gray-400';
     }
-    
+  
     // After answering
     const isCorrect = option === question.correctAnswer;
     const isUserAnswer = option === userAnswer;
@@ -103,7 +103,7 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
             {!hasAnswered ? (
               <button 
                 onClick={handleTextSubmit}
-                className="bg-green-500 w-full mt-4 py-1 rounded-sm text-white hover:bg-green-600"
+                className="bg-green-500 w-full mt-4 py-2 rounded-sm text-white hover:bg-green-600"
               >
                 Check
               </button>
@@ -125,7 +125,7 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
 
   return (
     <div className="flex justify-center mt-10">
-      <div className="w-100 bg-gray-200 p-6 rounded-md">
+      <div className="w-120 bg-gray-200 p-6 rounded-md">
         <p className="text-lg font-semibold text-center mb-4">{question.questionText}</p>
         
         {renderQuestionInput()}

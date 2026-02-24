@@ -85,6 +85,12 @@ export default function ExamTime() {
     };
   };
 
+  const handleRetake = () => {
+    setCurrentQuestionIndex(0);
+    setUserAnswers({});
+    setShowResults(false);
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -96,14 +102,20 @@ export default function ExamTime() {
   if (questions.length === 0) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <p className="text-xl">No questions found in selected folders.</p>
+        <p className="text-xl">No questions available</p>
       </div>
     );
   }
 
   if (showResults) {
-    const score = calculateScore();
-    return <ExamResults score={score} questions={questions} userAnswers={userAnswers} />;
+    return (
+      <ExamResults 
+        score={calculateScore()} 
+        questions={questions}
+        userAnswers={userAnswers}
+        onRetake={handleRetake}
+      />
+    );
   }
 
   const currentQuestion = questions[currentQuestionIndex];
