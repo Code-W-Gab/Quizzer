@@ -133,7 +133,7 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
         {hasAnswered && (
           <button 
             onClick={onNext}
-            className="bg-green-500 w-full mt-6 py-2 rounded-md text-white font-semibold hover:bg-green-600"
+            className="bg-green-500 w-full mt-4 py-2 rounded-md text-white font-semibold hover:bg-green-600"
           >
             {isLastQuestion ? 'Show Results' : 'Next Question'}
           </button>

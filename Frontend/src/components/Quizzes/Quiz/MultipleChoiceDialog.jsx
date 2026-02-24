@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { createMultipleChoiceQuestion } from "../../../services/quizService"
 import toast from "react-hot-toast"
 
-export default function MultipleChoiceDialog({onClose}) {
+export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
   const [question, setQuestion] = useState("")
   const [correctAnswer, setCorrectAnswer] = useState("")
   const [wrongAnswer1, setWrongAnswer1] = useState("")
@@ -17,6 +17,7 @@ export default function MultipleChoiceDialog({onClose}) {
         console.log(res)
         toast.success("Added Successfully")
         onClose()
+        getAllQuizByFolder()
       }).catch(err => console.log(err))
   }
 

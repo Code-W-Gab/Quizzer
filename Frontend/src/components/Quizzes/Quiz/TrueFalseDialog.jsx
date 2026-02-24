@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { createTrueFalseQuestion } from "../../../services/quizService"
 import toast from "react-hot-toast"
 
-export default function TrueFalseDialog({onClose}) {
+export default function TrueFalseDialog({onClose, getAllQuizByFolder}) {
   const [question, setQuestion] = useState("")
   const [correctAnswer, setCorrectAnswer] = useState("")
   const { id } = useParams()
@@ -14,6 +14,7 @@ export default function TrueFalseDialog({onClose}) {
         console.log(res)
         toast.success("Added Successfully")
         onClose()
+        getAllQuizByFolder()
       }).catch(err => console.log(err))
   }
 

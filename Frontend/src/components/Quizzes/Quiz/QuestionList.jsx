@@ -2,14 +2,14 @@ import AddQuestionFolder from "./AddQuestionFolder";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
 
-export default function QuestionList({questionFolder}) {
+export default function QuestionList({questionFolder, getAllQuizByFolder}) {
   const { name } = useParams()
 
   return(
     <div>
       <Header name={name} to={"/Quizzes"}/>
       <div className="px-6 py-3">
-        <AddQuestionFolder/>
+        <AddQuestionFolder getAllQuizByFolder={getAllQuizByFolder}/>
         <div className="grid grid-cols-4 gap-5 mt-6">
           {questionFolder.map((folder) => {
             return(

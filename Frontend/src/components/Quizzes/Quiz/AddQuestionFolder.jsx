@@ -5,7 +5,7 @@ import ShortTextDialog from "./ShortTextDialog"
 import MultipleChoiceDialog from "./MultipleChoiceDialog"
 import TrueFalseDialog from "./TrueFalseDialog"
 
-export default function AddQuestionFolder() {
+export default function AddQuestionFolder({getAllQuizByFolder}) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isShortTextModalOpen, setIsShortTextModalOpen] = useState(false)
   const [isMultipleChoiceModalOpen, setIsMultipleChoiceModalOpen] = useState(false)
@@ -49,7 +49,7 @@ export default function AddQuestionFolder() {
       {isShortTextModalOpen && (
         <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
           <div className="bg-opacity-25">
-            <ShortTextDialog onClose={() => setIsShortTextModalOpen(false)}/>
+            <ShortTextDialog onClose={() => setIsShortTextModalOpen(false)} getAllQuizByFolder={getAllQuizByFolder}/>
           </div>
         </div>
       )}
@@ -57,7 +57,7 @@ export default function AddQuestionFolder() {
       {isMultipleChoiceModalOpen && (
         <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
           <div className="bg-opacity-25">
-            <MultipleChoiceDialog onClose={() => setIsMultipleChoiceModalOpen(false)}/>
+            <MultipleChoiceDialog onClose={() => setIsMultipleChoiceModalOpen(false)} getAllQuizByFolder={getAllQuizByFolder}/>
           </div>
         </div>
       )}
@@ -65,7 +65,7 @@ export default function AddQuestionFolder() {
       {isTrueFalseModalOpen && (
         <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
           <div className="bg-opacity-25">
-            <TrueFalseDialog onClose={() => setIsTrueFalseModalOpen(false)}/>
+            <TrueFalseDialog onClose={() => setIsTrueFalseModalOpen(false)} getAllQuizByFolder={getAllQuizByFolder}/>
           </div>
         </div>
       )}

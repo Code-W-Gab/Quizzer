@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { createShortTextQuestion } from "../../../services/quizService"
 import toast from "react-hot-toast"
 
-export default function ShortTextDialog({onClose}) {
+export default function ShortTextDialog({onClose, getAllQuizByFolder}) {
   const [question, setQuestion] = useState("")
   const [correctAnswer, setCorrectAnswer] = useState("")
   const { id } = useParams()
@@ -14,6 +14,7 @@ export default function ShortTextDialog({onClose}) {
         toast.success("Added Successfully")
         console.log(res)
         onClose()
+        getAllQuizByFolder()
       })
       .catch(err => console.log(err))
   }
