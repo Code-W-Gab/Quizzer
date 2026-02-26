@@ -25,8 +25,8 @@ export default function AddQuestionFolder({getAllQuizByFolder}) {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
-          <div className="bg-opacity-25">
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center z-40">
+          <div className="z-50">
             <AddQuestionDialog 
               onClose={() => setIsModalOpen(false)}
               onOpenShortText={() => {
@@ -47,24 +47,24 @@ export default function AddQuestionFolder({getAllQuizByFolder}) {
       )}
 
       {isShortTextModalOpen && (
-        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
-          <div className="bg-opacity-25">
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center z-40">
+          <div className="bg-opacity-25 z-50">
             <ShortTextDialog onClose={() => setIsShortTextModalOpen(false)} getAllQuizByFolder={getAllQuizByFolder}/>
           </div>
         </div>
       )}
 
       {isMultipleChoiceModalOpen && (
-        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
-          <div className="bg-opacity-25">
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center z-40">
+          <div className="bg-opacity-25 z-50">
             <MultipleChoiceDialog onClose={() => setIsMultipleChoiceModalOpen(false)} getAllQuizByFolder={getAllQuizByFolder}/>
           </div>
         </div>
       )}
 
       {isTrueFalseModalOpen && (
-        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
-          <div className="bg-opacity-25">
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center z-40">
+          <div className="bg-opacity-25 z-50">
             <TrueFalseDialog onClose={() => setIsTrueFalseModalOpen(false)} getAllQuizByFolder={getAllQuizByFolder}/>
           </div>
         </div>
