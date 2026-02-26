@@ -35,7 +35,7 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
         <div className="grid grid-cols-4 gap-5 mt-6 items-start">
           {questionFolder.map((folder) => {
             return(
-              <div key={folder._id} className="bg-gray-100 px-6 py-2 rounded-md relative h-fit">
+              <div key={folder._id} className="bg-gray-100 px-6 py-2 rounded-md relative">
                 <EllipsisNavbar 
                   onDelete={() => handleDeleteQuestion(folder._id)}
                   onEdit={() => handleEditQuestion(folder)}

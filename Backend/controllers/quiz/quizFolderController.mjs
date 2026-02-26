@@ -1,4 +1,5 @@
 import QuizFolder from '../../models/quizFolderSchema.mjs';
+import Question from '../../models/questionSchema.mjs'; // Add this import
 
 // Create a new quiz folder
 export const createQuizFolder = async (req, res) => {
@@ -70,7 +71,7 @@ export const updateQuizFolder = async (req, res) => {
   }
 };
 
-// Delete quiz folder
+// Delete quiz folder and all associated questions
 export const deleteQuizFolder = async (req, res) => {
   try {
     const quizFolder = await QuizFolder.findByIdAndDelete(req.params.id);
@@ -79,7 +80,13 @@ export const deleteQuizFolder = async (req, res) => {
       return res.status(404).json({ message: 'Quiz folder not found' });
     }
 
-    res.status(200).json({ message: 'Quiz folder deleted successfully' });
+    // Delete all questions associated with this folder
+    const deletedQuestions = await Question.deleteMany({ quizFolder: req.params.id });
+
+    res.status(200).json({ 
+      message: 'Quiz folder and associated questions deleted successfully',
+      deletedQuestionsCount: deletedQuestions.deletedCount
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
