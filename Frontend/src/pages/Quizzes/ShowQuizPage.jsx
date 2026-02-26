@@ -21,6 +21,6 @@ export default function ShowQuizPage() {
   }, []);
 
   return(
-    <QuestionList questionFolder={questionFolder} getAllQuizByFolder={getAllQuizByFolder}/>
+    <QuestionList questionFolder={questionFolder} getAllQuizByFolder={fetchGetAllQuestionByFolder}/>
   )
 }

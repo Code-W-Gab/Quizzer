@@ -8,7 +8,7 @@ export default function Quizzes({ quizFolder, fetchQuizFolder }) {
         <AddFolder fetchQuizFolder={fetchQuizFolder}/>
       </div>
       <div className="mt-8">
-        <QuizList quizFolder={quizFolder}/>
+        <QuizList quizFolder={quizFolder} fetchQuizFolder={fetchQuizFolder}/>
       </div>
     </div>
   )

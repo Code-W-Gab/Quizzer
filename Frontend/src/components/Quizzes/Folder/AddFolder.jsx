@@ -20,8 +20,8 @@ export default function AddFolder({fetchQuizFolder}) {
 
 
       {isQuizFolderOpen && (
-        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center">
-          <div className="bg-opacity-25">
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center z-40">
+          <div className="z-50">
             <AddQuizFolder
               fetchQuizFolder={fetchQuizFolder}
               onClose={() => setIsQuizFolderOpen(false)}

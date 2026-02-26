@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getAllQuizByFolder } from "../../../services/quizService";
+import { deleteQuizFolder, editQuizFolder, getAllQuizByFolder } from "../../../services/quizService";
+import EllipsisNavbar from "../../Common/EllipsisNavbar";
+import toast from "react-hot-toast";
+import AddQuizFolder from "./AddQuizFolder";
+import EditQuizFolder from "./EditQuizFolder";
 
-export default function QuizList({quizFolder}) {
+export default function QuizList({quizFolder, fetchQuizFolder}) {
   const [questionCounts, setQuestionCounts] = useState({})
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState(null)
 
   useEffect(() => {
     // Fetch question counts for all folders
@@ -28,18 +34,49 @@ export default function QuizList({quizFolder}) {
     }
   }, [quizFolder])
 
+  function handleDeleteFolder(folderId) {
+    deleteQuizFolder(folderId)
+      .then(res => {
+        toast.success("Folder successfully deleted!")
+        console.log(res)
+        fetchQuizFolder()
+      }).catch(err => console.log(err))
+  }
+
+  function handleEditFolder(folderId) {
+    setSelectedId(folderId)
+    setIsEditModalOpen(true)
+  }
+
   return(
-    <div className="grid grid-cols-4 gap-5">
-      {quizFolder.map((folder) => {
-        const questionCount = questionCounts[folder._id] || 0
-        
-        return(
-          <Link to={`/Quizzes/${folder.name}/${folder._id}`} key={folder._id} className="bg-white pl-4 py-4 rounded-md hover:bg-green-400 hover:text-white">
-            <h1 className="text-xl font-semibold mb-1 break-all">{folder.name}</h1>
-            <p className="text-sm">{questionCount} {questionCount === 1 ? 'question' : 'questions'}</p>
-          </Link>
-        )
-      })}
+    <div>
+      <div className="grid grid-cols-4 gap-5 items-start">
+        {quizFolder.map((folder) => {
+          const questionCount = questionCounts[folder._id] || 0
+          
+          return(
+            <div className="bg-white p-4 rounded-md hover:bg-green-400 hover:text-white relative h-fit" key={folder._id}>
+              <EllipsisNavbar onDelete={() => handleDeleteFolder(folder._id)} onEdit={() => handleEditFolder(folder._id)}/>
+              <Link to={`/Quizzes/${folder.name}/${folder._id}`}>
+                <h1 className="text-xl font-semibold mb-1 mt-4 break-all">{folder.name}</h1>
+                <p className="text-sm mb-3">{questionCount} {questionCount === 1 ? 'question' : 'questions'}</p>
+              </Link>
+            </div>
+          )
+        })}
+      </div>
+
+      {isEditModalOpen && (
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center z-40">
+          <div className="z-50">
+            <EditQuizFolder
+              folderId={selectedId}
+              onClose={() => setIsEditModalOpen(false)}
+              fetchQuizFolder={fetchQuizFolder}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

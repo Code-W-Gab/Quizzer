@@ -6,7 +6,13 @@ export const addQuizFolder = (folderName) => api.post("/api/quiz/folders", {
   name: folderName
 })
 
+export const deleteQuizFolder = (id) => api.delete(`api/quiz/folders/${id}`)
+
+export const editQuizFolder = (id, name) => api.put(`api/quiz/folders/${id}`, {name})
+
 export const getAllQuizByFolder = (id) => api.get(`/api/quiz/folders/${id}/questions`)
+
+export const getQuizFolderById = (id) => api.get(`/api/quiz/folders/${id}`)
 
 export const createShortTextQuestion = (id, question, correctAnswer) => api.post("/api/quiz/questions", {
   quizFolder: id,

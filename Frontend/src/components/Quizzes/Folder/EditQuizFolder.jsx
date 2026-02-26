@@ -1,22 +1,36 @@
-import { useState } from 'react'
-import { addQuizFolder } from '../../../services/quizService'
+import { useEffect, useState } from 'react'
+import { editQuizFolder, getQuizFolderById } from '../../../services/quizService'
 import toast from 'react-hot-toast'
 
-
-export default function AddQuizFolder({ onClose, fetchQuizFolder }) {
+export default function EditQuizFolder({folderId, onClose, fetchQuizFolder}) {
   const [folderName, setFolderName] = useState("")
 
-  function handleAddFolder() {
-    addQuizFolder(folderName)
+  function fetchQuizFolderById() {
+    getQuizFolderById(folderId)
       .then(res => {
-        console.log(res)
-        onClose()
-        toast.success("Quiz Folder Successfully Created")
-        fetchQuizFolder()
-      })
-      .catch(err => console.log(err))
+        setFolderName(res.data.data.name)
+      }).catch(err => console.log(err))
   }
 
+  useEffect(() => {
+    fetchQuizFolderById()
+  }, [])
+
+  function handleSave() {
+    editQuizFolder(folderId, folderName)
+      .then(res => {
+        toast.success("Folder successfully updated!")
+        console.log(res)
+        onClose()
+        fetchQuizFolder()
+      })
+      .catch(err => {
+        toast.error("Failed to update folder")
+        console.log(err)
+      })
+    }
+
+  
   return(
     <div className="bg-white w-90 px-4 py-6 rounded-md z-50">
       <h1 className='text-lg font-semibold'>Quiz Name</h1>
@@ -38,7 +52,7 @@ export default function AddQuizFolder({ onClose, fetchQuizFolder }) {
       </div>
       <div className="mt-5 flex items-center justify-end gap-4 text-sm text-green-600">
         <button onClick={onClose}>CANCEL</button>
-        <button onClick={handleAddFolder}>SAVE</button>
+        <button onClick={handleSave}>SAVE</button>
       </div>
     </div>
   )
