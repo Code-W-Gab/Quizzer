@@ -9,7 +9,7 @@ export default function Header() {
   ]
 
   return(
-    <div className="px-8 py-4 flex items-center justify-between">
+    <div className="px-8 py-2 flex items-center justify-between bg-amber-50 rounded-lg">
       <div className="flex gap-2 items-center text-green-500 font-bold">
         <NotepadText />
         <span className='text-xl'>QUIZZER</span>

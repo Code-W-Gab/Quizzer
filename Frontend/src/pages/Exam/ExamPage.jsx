@@ -1,4 +1,4 @@
-import Navigation from "../../components/Common/Navigation";
+import Header from "../../components/Common/Header";
 import Exam from "../../components/Exam/Exam";
 import { getQuizFolder } from "../../services/quizService";
 import { useState, useEffect } from "react";
@@ -19,8 +19,11 @@ export default function ExamPage() {
   }, [])
 
   return(
-    <Navigation>
-      <Exam quizFolder={quizFolder}/>
-    </Navigation>
+    <div className="bg-gray-300 min-h-screen px-14 py-3">
+      <Header/>
+      <div className="mt-8">
+        <Exam quizFolder={quizFolder}/>
+      </div>
+    </div>
   )
 }

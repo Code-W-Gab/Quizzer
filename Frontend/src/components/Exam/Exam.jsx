@@ -14,7 +14,7 @@ export default function Exam({quizFolder}) {
   };
   
   return(
-    <div className="h-full bg-gray-300 p-5">
+    <div>
       <div>
         <StartExam selectedQuizzes={selectedQuizzes}/>
       </div>

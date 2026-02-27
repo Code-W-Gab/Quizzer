@@ -3,7 +3,7 @@ import QuizList from "./QuizList";
 
 export default function Quizzes({ quizFolder, fetchQuizFolder }) {
   return(
-    <div className="h-full bg-gray-300 p-5">
+    <div>
       <div>
         <AddFolder fetchQuizFolder={fetchQuizFolder}/>
       </div>
