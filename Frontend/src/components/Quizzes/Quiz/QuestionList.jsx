@@ -6,16 +6,20 @@ import { deleteQuestion } from "../../../services/questionService";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import EditQuestionDialog from "./EditQuestionDialog";
+import Delete from "../../Common/Delete";
 
 export default function QuestionList({questionFolder, getAllQuizByFolder}) {
   const { name } = useParams()
   const [selectedQuestion, setSelectedQuestion] = useState(null)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+  const [selectedId, setSelectedId] = useState(null)
 
   function handleDeleteQuestion(id) {
     deleteQuestion(id)
       .then(res => {
         toast.success("Question Successfully Deleted!")
+        setIsDeleteModalOpen(false)
         console.log(res)
         getAllQuizByFolder()
       }).catch(err => console.log(err))
@@ -28,16 +32,19 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
 
   
   return(
-    <div>
+    <div className="bg-gray-200 min-h-screen">
       <Header name={name} to={"/Quizzes"}/>
       <div className="px-6 py-3">
         <AddQuestionFolder getAllQuizByFolder={getAllQuizByFolder}/>
         <div className="grid grid-cols-4 gap-5 mt-6 items-start ">
           {questionFolder.map((folder) => {
             return(
-              <div key={folder._id} className="bg-gray-100 px-6 py-2 rounded-md relative">
+              <div key={folder._id} className="bg-white px-6 py-2 rounded-md relative">
                 <EllipsisNavbar 
-                  onDelete={() => handleDeleteQuestion(folder._id)}
+                  onDelete={() => {
+                    setIsDeleteModalOpen(true)
+                    setSelectedId(folder._id)
+                  }}
                   onEdit={() => handleEditQuestion(folder)}
                 />
                 <p className="mt-6">{folder.questionText}</p>
@@ -58,6 +65,18 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
                 setSelectedQuestion(null)
               }}
               getAllQuizByFolder={getAllQuizByFolder}
+            />
+          </div>
+        </div>
+      )}
+
+      {isDeleteModalOpen && (
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center z-40">
+          <div className="z-50">
+            <Delete 
+              name={"question"} 
+              onClose={() => setIsDeleteModalOpen(false)}
+              onDelete={() => handleDeleteQuestion(selectedId)}
             />
           </div>
         </div>

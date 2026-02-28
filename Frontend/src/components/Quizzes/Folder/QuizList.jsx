@@ -5,10 +5,12 @@ import EllipsisNavbar from "../../Common/EllipsisNavbar";
 import toast from "react-hot-toast";
 import AddQuizFolder from "./AddQuizFolder";
 import EditQuizFolder from "./EditQuizFolder";
+import Delete from "../../Common/Delete";
 
 export default function QuizList({quizFolder, fetchQuizFolder}) {
   const [questionCounts, setQuestionCounts] = useState({})
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState(null)
 
   useEffect(() => {
@@ -40,6 +42,7 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
         toast.success("Folder successfully deleted!")
         console.log(res)
         fetchQuizFolder()
+        setIsDeleteModalOpen(false)
       }).catch(err => console.log(err))
   }
 
@@ -56,7 +59,13 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
           
           return(
             <div className="bg-white p-4 rounded-md hover:bg-green-400 hover:text-white relative h-fit" key={folder._id}>
-              <EllipsisNavbar onDelete={() => handleDeleteFolder(folder._id)} onEdit={() => handleEditFolder(folder._id)}/>
+              <EllipsisNavbar
+                onDelete={() => {
+                  setIsDeleteModalOpen(true)
+                  setSelectedId(folder._id)
+                }}
+                onEdit={() => handleEditFolder(folder._id)}
+              />
               <Link to={`/Quizzes/${folder.name}/${folder._id}`}>
                 <h1 className="text-xl font-semibold mb-1 mt-4 break-all">{folder.name}</h1>
                 <p className="text-sm mb-3">{questionCount} {questionCount === 1 ? 'question' : 'questions'}</p>
@@ -73,6 +82,18 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
               folderId={selectedId}
               onClose={() => setIsEditModalOpen(false)}
               fetchQuizFolder={fetchQuizFolder}
+            />
+          </div>
+        </div>
+      )}
+
+      {isDeleteModalOpen && (
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center z-40">
+          <div className="z-50">
+            <Delete 
+              name={"folder"}
+              onClose={() => setIsDeleteModalOpen(false)}
+              onDelete={() => handleDeleteFolder(selectedId)}
             />
           </div>
         </div>

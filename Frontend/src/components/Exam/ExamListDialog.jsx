@@ -1,11 +1,10 @@
-
 export default function ExamListDialog({onClose, quizFolder, selectedQuizzes, handleCheckboxChange}) {
 
   return(
     <div>
       <div className="bg-white w-90 px-4 py-6 rounded-md">
         <h1 className="text-xl mb-4 font-semibold">Quizzes</h1>
-        <div>
+        <div className="max-h-96 overflow-y-auto pr-2">
           {quizFolder.map((folder) => {
             return(
               <div key={folder._id} className="flex items-center gap-3 mb-3">
