@@ -23,12 +23,12 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
 
   return(
     <div>
-      <div className="bg-white w-100 px-4 py-6 rounded-md">
+      <div className="bg-white dark:bg-gray-600 dark:text-white w-100 px-4 py-6 rounded-md">
         <h1 className="text-xl font-semibold mb-4">Multiple Choice</h1>
         <div className="relative mb-6">
           <input 
-            className="border-b-2 w-full pt-4 pb-1 text-sm border-b-gray-600 focus:outline-none peer placeholder-transparent
-                       focus:border-green-600" 
+            className="border-b-2 w-full pt-4 pb-1 border-b-gray-600 dark:border-b-white dark:text-white text-sm focus:outline-none peer placeholder-transparent
+                    focus:border-green-600 dark:focus:border-green-400" 
             type="text"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
@@ -37,17 +37,17 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="question"
-            className="absolute left-0 -top-3 text-sm text-gray-600 transition-all
+            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
-                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600"
+                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >
             Question
           </label>
         </div>
         <div className="relative mb-6">
           <input 
-            className="border-b-2 w-full pt-4 pb-1 text-sm border-b-gray-600 focus:outline-none peer placeholder-transparent
-                       focus:border-green-600" 
+            className="border-b-2 w-full pt-4 pb-1 border-b-gray-600 dark:border-b-white dark:text-white text-sm focus:outline-none peer placeholder-transparent
+                    focus:border-green-600 dark:focus:border-green-400" 
             type="text"
             value={correctAnswer}
             onChange={(e) => setCorrectAnswer(e.target.value)}
@@ -56,9 +56,9 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="correctAnswer"
-            className="absolute left-0 -top-3 text-sm text-gray-600 transition-all
+            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
-                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600"
+                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >
             Correct Answer
           </label>
@@ -66,8 +66,8 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
         
         <div className="relative mb-6">
           <input 
-            className="border-b-2 w-full pt-4 pb-1 text-sm border-b-gray-600 focus:outline-none peer placeholder-transparent
-                       focus:border-green-600" 
+            className="border-b-2 w-full pt-4 pb-1 border-b-gray-600 dark:border-b-white dark:text-white text-sm focus:outline-none peer placeholder-transparent
+                    focus:border-green-600 dark:focus:border-green-400"  
             type="text"
             value={wrongAnswer1}
             onChange={(e) => setWrongAnswer1(e.target.value)}
@@ -76,9 +76,9 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="wrongAnswer1"
-            className="absolute left-0 -top-3 text-sm text-gray-600 transition-all
+            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
-                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600"
+                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >
             Wrong Answer 1
           </label>
@@ -87,8 +87,8 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
         
         <div className="relative mb-6">
           <input 
-            className="border-b-2 w-full pt-4 pb-1 text-sm border-b-gray-600 focus:outline-none peer placeholder-transparent
-                       focus:border-green-600" 
+            className="border-b-2 w-full pt-4 pb-1 border-b-gray-600 dark:border-b-white dark:text-white text-sm focus:outline-none peer placeholder-transparent
+                    focus:border-green-600 dark:focus:border-green-400"  
             type="text"
             value={wrongAnswer2}
             onChange={(e) => setWrongAnswer2(e.target.value)}
@@ -97,17 +97,17 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="wrongAnswer2"
-            className="absolute left-0 -top-3 text-sm text-gray-600 transition-all
+            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
-                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600"
+                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >
             Wrong Answer 2
           </label>
         </div>
         <div className="relative mb-6">
           <input 
-            className="border-b-2 w-full pt-4 pb-1 text-sm border-b-gray-600 focus:outline-none peer placeholder-transparent
-                       focus:border-green-600" 
+            className="border-b-2 w-full pt-4 pb-1 border-b-gray-600 dark:border-b-white dark:text-white text-sm focus:outline-none peer placeholder-transparent
+                    focus:border-green-600 dark:focus:border-green-400" 
             type="text"
             value={wrongAnswer3}
             onChange={(e) => setWrongAnswer3(e.target.value)}
@@ -116,14 +116,14 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="wrongAnswer3"
-            className="absolute left-0 -top-3 text-sm text-gray-600 transition-all
+            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
-                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600"
+                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >
             Wrong Answer 3
           </label>
         </div>       
-        <div className="mt-8 mr-2 flex justify-end gap-4 text-md text-green-600">
+        <div className="mt-8 mr-2 flex justify-end gap-4 text-md text-green-600 dark:text-green-400">
           <button onClick={onClose}>Back</button>
           <button onClick={handleAddMultipleChoice}>Save</button>
         </div>

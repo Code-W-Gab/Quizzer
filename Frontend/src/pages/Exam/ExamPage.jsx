@@ -19,7 +19,7 @@ export default function ExamPage() {
   }, [])
 
   return(
-    <div className="bg-gray-300 min-h-screen px-14 py-3">
+    <div className="bg-gray-300 dark:bg-[#222222] min-h-screen px-14 py-3">
       <Header/>
       <div className="mt-8">
         <Exam quizFolder={quizFolder}/>

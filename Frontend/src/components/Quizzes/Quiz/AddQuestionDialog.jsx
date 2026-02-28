@@ -17,7 +17,7 @@ export default function AddQuestionDialog({onClose, onOpenShortText, onOpenMulti
 
   return(
     <div>
-      <div className="bg-white w-80 px-4 py-6 rounded-md">
+      <div className="bg-white dark:bg-gray-600 dark:text-white w-80 px-4 py-6 rounded-md">
         <h1 className="text-xl mb-4 font-semibold">Question Type</h1>
         <div className="flex items-center gap-3 mb-3">
           <input 
@@ -49,7 +49,7 @@ export default function AddQuestionDialog({onClose, onOpenShortText, onOpenMulti
           />
           <label className="text-md">True or False</label>
         </div>
-        <div className="mt-6 mr-2 flex justify-end gap-4 text-md text-green-600">
+        <div className="mt-6 mr-2 flex justify-end gap-4 text-md text-green-600 dark:text-green-400">
           <button onClick={onClose}>Back</button>
           <button onClick={handleAddQuestion}>Save</button>
         </div>

@@ -6,7 +6,7 @@ import ExamTimePage from "./pages/Exam/ExamTimePage"
 
 export default function App() {
   return(
-    <main>
+    <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       <Routes>
         <Route path="/" element={<Navigate to='/Exam'/>}/>
         {/* Exam Page */}

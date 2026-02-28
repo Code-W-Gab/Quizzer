@@ -8,7 +8,7 @@ export default function ExamList({quizFolder, handleCheckboxChange, selectedQuiz
   return(
     <div>
       <div className="grid grid-cols-4">
-        <button onClick={() => setIsModalOpen(true)} className="flex items-center gap-4 cursor-auto font-semibold bg-white rounded-md p-4 hover:bg-green-500 hover:text-white">
+        <button onClick={() => setIsModalOpen(true)} className="flex items-center gap-4 cursor-auto font-semibold bg-white dark:bg-gray-600 dark:text-white rounded-md p-4 hover:bg-green-500 hover:text-white">
           <FolderClosed />
           <p>Quizzes</p>
         </button>

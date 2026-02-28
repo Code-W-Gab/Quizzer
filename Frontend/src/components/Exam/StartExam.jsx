@@ -16,10 +16,10 @@ export default function StartExam({selectedQuizzes}) {
   return(
     <div>
       <div className="flex justify-between items-center">
-        <h1 className="text-xl font-bold">Manage Exam</h1>
+        <h1 className="text-xl font-bold dark:text-white">Manage Exam</h1>
         <button
           onClick={handleOk}
-          className="bg-green-500 text-white py-2 px-6 flex items-center gap-2 rounded-md"
+          className="bg-green-500 dark:bg-green-400 text-white py-2 px-6 flex items-center gap-2 rounded-md"
         >
           <Play size={20}/>
           <span>Start</span>

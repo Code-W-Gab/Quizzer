@@ -7,11 +7,11 @@ export default function AddFolder({fetchQuizFolder}) {
 
   return(
     <div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center dark:text-white">
         <h1 className="text-xl font-bold">Manage Quiz</h1>
         <button 
           onClick={() => setIsQuizFolderOpen(true)}
-          className="bg-green-500 text-white p-2 flex items-center gap-2 rounded-md"
+          className="bg-green-500 dark:bg-green-400 text-white p-2 flex items-center gap-2 rounded-md"
         >
           <Plus/>
           <span>Add Quiz</span>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { deleteQuizFolder, editQuizFolder, getAllQuizByFolder } from "../../../services/quizService";
+import { deleteQuizFolder, getAllQuizByFolder } from "../../../services/quizService";
 import EllipsisNavbar from "../../Common/EllipsisNavbar";
 import toast from "react-hot-toast";
 import AddQuizFolder from "./AddQuizFolder";
@@ -58,7 +58,7 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
           const questionCount = questionCounts[folder._id] || 0
           
           return(
-            <div className="bg-white p-4 rounded-md hover:bg-green-400 hover:text-white relative h-fit" key={folder._id}>
+            <div className="bg-white dark:bg-gray-600 dark:text-white p-4 rounded-md hover:bg-green-400 hover:text-white relative h-fit" key={folder._id}>
               <EllipsisNavbar
                 onDelete={() => {
                   setIsDeleteModalOpen(true)

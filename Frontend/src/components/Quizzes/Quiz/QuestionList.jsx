@@ -32,14 +32,14 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
 
   
   return(
-    <div className="bg-gray-200 min-h-screen">
+    <div className="bg-gray-200 dark:bg-[#222222] min-h-screen">
       <Header name={name} to={"/Quizzes"}/>
       <div className="px-6 py-3">
         <AddQuestionFolder getAllQuizByFolder={getAllQuizByFolder}/>
-        <div className="grid grid-cols-4 gap-5 mt-6 items-start ">
+        <div className="grid grid-cols-4 gap-5 mt-6 items-start">
           {questionFolder.map((folder) => {
             return(
-              <div key={folder._id} className="bg-white px-6 py-2 rounded-md relative">
+              <div key={folder._id} className="bg-white dark:bg-gray-600 dark:text-white px-6 py-2 rounded-md relative">
                 <EllipsisNavbar 
                   onDelete={() => {
                     setIsDeleteModalOpen(true)
@@ -48,7 +48,7 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
                   onEdit={() => handleEditQuestion(folder)}
                 />
                 <p className="mt-6">{folder.questionText}</p>
-                <p className="text-green-500 mb-3 mt-2">{folder.correctAnswer}</p>
+                <p className="text-green-500 dark:text-green-400 mb-3 mt-2">{folder.correctAnswer}</p>
               </div>
             )
           })}

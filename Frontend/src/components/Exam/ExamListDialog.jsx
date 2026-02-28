@@ -2,14 +2,14 @@ export default function ExamListDialog({onClose, quizFolder, selectedQuizzes, ha
 
   return(
     <div>
-      <div className="bg-white w-90 px-4 py-6 rounded-md">
+      <div className="bg-white dark:bg-gray-600 dark:text-white w-90 px-4 py-6 rounded-md">
         <h1 className="text-xl mb-4 font-semibold">Quizzes</h1>
         <div className="max-h-96 overflow-y-auto pr-2">
           {quizFolder.map((folder) => {
             return(
               <div key={folder._id} className="flex items-center gap-3 mb-3">
                 <input 
-                  className="size-5 accent-green-600 mt-0.5 shrink-0" 
+                  className="size-5 accent-green-500 mt-0.5 shrink-0" 
                   type="checkbox"
                   checked={selectedQuizzes.includes(folder._id)}
                   onChange={() => handleCheckboxChange(folder._id)}
@@ -19,7 +19,7 @@ export default function ExamListDialog({onClose, quizFolder, selectedQuizzes, ha
             )
           })}
         </div>
-        <div className="mt-6 mr-2 flex justify-end gap-4 text-md text-green-600">
+        <div className="mt-6 mr-2 flex justify-end gap-4 text-md text-green-600 dark:text-green-400">
           <button onClick={onClose}>Ok</button>
         </div>
       </div>

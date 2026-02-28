@@ -20,7 +20,7 @@ export default function QuizzesPage() {
   }, [])
 
   return(
-    <div className="bg-gray-300 min-h-screen px-14 py-3">
+    <div className="bg-gray-300 dark:bg-[#222222] min-h-screen px-14 py-3">
       <Header/>
       <div className="mt-8">
         <Quizzes quizFolder={quizFolder} fetchQuizFolder={fetchQuizFolder}/>
