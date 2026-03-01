@@ -89,9 +89,9 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
               className={`border-b-2 w-full pt-4 pb-1 text-sm focus:outline-none peer placeholder-transparent
                         ${hasAnswered 
                           ? (userAnswer === question.correctAnswer 
-                              ? 'border-b-green-500 ' 
+                              ? 'border-b-green-500 dark:border-b-green-400' 
                               : 'border-b-red-500')
-                          : 'border-b-gray-600 focus:border-green-600'
+                          : 'border-b-gray-600 dark:border-white focus:border-green-600'
                         }`}
               type="text"
               placeholder="Your answer"
@@ -125,7 +125,7 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
 
   return (
     <div className="flex justify-center mt-10">
-      <div className="w-120 bg-gray-200 p-6 rounded-md">
+      <div className="w-120 bg-white dark:bg-gray-600 dark:text-white p-6 rounded-md">
         <p className="text-lg font-semibold text-center mb-4">{question.questionText}</p>
         
         {renderQuestionInput()}
