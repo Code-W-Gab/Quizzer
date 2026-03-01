@@ -49,7 +49,7 @@ export default function Header() {
                 to={item.to}
                 className={`flex justify-start rounded-md w-full transition-colors dark:text-gray-200
                 ${isActive
-                  ? "text-green-500 dark:text-green-400"
+                  ? "text-green-600 underline dark:text-green-400"
                   : "hover:text-green-400"
                 }`}
               >
@@ -60,7 +60,7 @@ export default function Header() {
         </div>
       </div>
       <div className='flex items-center gap-4'>
-        <button className='bg-gray-200 hover:bg-gray-300 dark:text-white dark:bg-gray-500 dark:hover:bg-gray-400 p-2 rounded-md cursor-pointer' onClick={toggleDarkMode}>
+        <button className='bg-gray-200 hover:bg-gray-100 dark:text-white dark:bg-gray-500 dark:hover:bg-gray-400 p-2 rounded-md cursor-pointer' onClick={toggleDarkMode}>
           <Moon />
         </button>
         <div className='hover:bg-gray-200  p-0.5 rounded-sm'>

@@ -20,7 +20,7 @@ export default function AddFolder({fetchQuizFolder}) {
       </div>
 
       {/* Mobile size */}
-      <div className="md:hidden fixed right-4 bottom-4">
+      <div className="md:hidden fixed right-6 bottom-8">
         <button 
           onClick={() => setIsQuizFolderOpen(true)}
           className="bg-green-500 text-white p-3 rounded-full"

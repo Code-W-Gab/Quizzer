@@ -84,7 +84,7 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
             <div className="border-b px-3 border-gray-600 dark:hover:bg-green-400 dark:text-white" key={folder._id}>
               <Link to={`/Quizzes/${folder.name}/${folder._id}`}>
                 <h1 className="text-md font-semibold mb-1 mt-3 break-all">{folder.name}</h1>
-                <p className="text-xs mb-3 text-gray-700">{questionCount} {questionCount === 1 ? 'question' : 'questions'}</p>
+                <p className="text-xs mb-3 text-gray-700 dark:text-gray-300">{questionCount} {questionCount === 1 ? 'question' : 'questions'}</p>
               </Link>
             </div>
           )

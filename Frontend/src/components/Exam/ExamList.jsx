@@ -20,7 +20,7 @@ export default function ExamList({quizFolder, handleCheckboxChange, selectedQuiz
 
       {/* Mobile size */}
       <div className="md:hidden">
-        <div className="flex items-center gap-6 px-3 border-b border-gray-600">
+        <div className="flex items-center gap-6 px-3 border-b border-gray-600 dark:text-white">
           <FolderClosed size={30}/>
           <div>
             <button 
@@ -29,7 +29,7 @@ export default function ExamList({quizFolder, handleCheckboxChange, selectedQuiz
             >
               Quizzes
             </button>
-            <p className="text-sm text-gray-700 mb-3">Tap to choose quizzes</p>
+            <p className="text-sm text-gray-700 mb-3 dark:text-gray-300">Tap to choose quizzes</p>
           </div>
         </div>
       </div>
