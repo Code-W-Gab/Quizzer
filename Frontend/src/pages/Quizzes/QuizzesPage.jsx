@@ -1,8 +1,8 @@
-import { useState } from "react";
-import Quizzes from "../../components/Quizzes/Folder/Quizzes";
-import { getQuizFolder } from '../../services/quizService'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "../../components/Common/Header";
+import MobileHeader from "../../components/Common/MobileHeader";
+import Quizzes from "../../components/Quizzes/Folder/Quizzes";
+import { getQuizFolder } from '../../services/quizService';
 
 export default function QuizzesPage() {
   const [quizFolder, setQuizFolder] = useState([])
@@ -20,8 +20,13 @@ export default function QuizzesPage() {
   }, [])
 
   return(
-    <div className="bg-gray-300 dark:bg-[#222222] min-h-screen px-14 py-4">
-      <Header/>
+    <div className="bg-white dark:bg-[#222222] min-h-screen md:px-10 lg:px-12 xl:px-14 md:py-4">
+      <div className="hidden md:block">
+        <Header/>
+      </div>
+      <div className="md:hidden">
+        <MobileHeader/>
+      </div>
       <div className="mt-8">
         <Quizzes quizFolder={quizFolder} fetchQuizFolder={fetchQuizFolder}/>
       </div>

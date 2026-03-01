@@ -53,12 +53,13 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
 
   return(
     <div>
-      <div className="grid grid-cols-4 gap-5 items-start">
+      {/* Table to Desktop Size */}
+      <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 items-start">
         {quizFolder.map((folder) => {
           const questionCount = questionCounts[folder._id] || 0
           
           return(
-            <div className="bg-white dark:bg-gray-600 dark:text-white p-4 rounded-md hover:bg-green-400 hover:text-white relative h-fit" key={folder._id}>
+            <div className="bg-gray-300 dark:bg-gray-600 dark:text-white p-3 md:p-4  rounded-md hover:bg-green-400 hover:text-white relative h-fit" key={folder._id}>
               <EllipsisNavbar
                 onDelete={() => {
                   setIsDeleteModalOpen(true)
@@ -69,6 +70,21 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
               <Link to={`/Quizzes/${folder.name}/${folder._id}`}>
                 <h1 className="text-xl font-semibold mb-1 mt-4 break-all">{folder.name}</h1>
                 <p className="text-sm mb-3">{questionCount} {questionCount === 1 ? 'question' : 'questions'}</p>
+              </Link>
+            </div>
+          )
+        })}
+      </div>
+      {/* Mobile size */}
+      <div className="md:hidden">
+        {quizFolder.map((folder) => {
+          const questionCount = questionCounts[folder._id] || 0
+
+          return(
+            <div className="border-b px-3 border-gray-600 dark:hover:bg-green-400 dark:text-white" key={folder._id}>
+              <Link to={`/Quizzes/${folder.name}/${folder._id}`}>
+                <h1 className="text-md font-semibold mb-1 mt-3 break-all">{folder.name}</h1>
+                <p className="text-xs mb-3 text-gray-700">{questionCount} {questionCount === 1 ? 'question' : 'questions'}</p>
               </Link>
             </div>
           )

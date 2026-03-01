@@ -34,7 +34,7 @@ export default function Header() {
   ]
 
   return(
-    <div className="flex items-center justify-between bg-amber-50 dark:bg-gray-600 px-4 rounded-lg">
+    <div className="flex items-center justify-between bg-gray-300 dark:bg-gray-600 px-4 rounded-lg">
       <div className="flex items-center">
         <div className="pr-4 border-r-2 border-gray-400 dark:border-white">
           <img src={quiz} className="size-14"/>
