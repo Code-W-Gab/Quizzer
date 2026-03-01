@@ -12,24 +12,6 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
     onAnswer(option);
   };
 
-  // Check if user answer partially matches correct answer
-  const isPartialMatch = (userAns, correctAns) => {
-    if (!userAns || !correctAns) return false;
-    
-    const userLower = userAns.trim().toLowerCase();
-    const correctLower = correctAns.trim().toLowerCase();
-    
-    // Exact match
-    if (userLower === correctLower) return true;
-    
-    // Check if user answer exists anywhere in correct answer (minimum 1 character)
-    if (userLower.length >= 1 && correctLower.includes(userLower)) {
-      return true;
-    }
-    
-    return false;
-  };
-
   const handleTextSubmit = () => {
     if (inputValue.trim()) {
       onAnswer(inputValue.trim());
@@ -101,15 +83,12 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
         );
 
       case 'short-text':
-        const isCorrectAnswer = isPartialMatch(userAnswer, question.correctAnswer);
-        const isExactMatch = userAnswer?.trim().toLowerCase() === question.correctAnswer?.trim().toLowerCase();
-        
         return (
           <div className="mt-4">
             <input 
               className={`border-b-2 w-full pt-4 pb-1 text-sm focus:outline-none peer placeholder-transparent
                         ${hasAnswered 
-                          ? (isCorrectAnswer 
+                          ? (userAnswer === question.correctAnswer 
                               ? 'border-b-green-500 dark:border-b-green-400' 
                               : 'border-b-red-500')
                           : 'border-b-gray-600 dark:border-white focus:border-green-600'
@@ -129,20 +108,12 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
                 Check
               </button>
             ) : (
-              <>
-                {isCorrectAnswer && !isExactMatch && (
-                  <div className="mt-4 p-3 bg-green-100 border-l-4 border-green-500 rounded">
-                    <p className="text-sm text-gray-700">Correct! Complete answer:</p>
-                    <p className="font-semibold text-green-700">{question.correctAnswer}</p>
-                  </div>
-                )}
-                {!isCorrectAnswer && (
-                  <div className="mt-4 p-3 bg-red-100 border-l-4 border-red-500 rounded">
-                    <p className="text-sm text-gray-700">Correct answer:</p>
-                    <p className="font-semibold text-green-700">{question.correctAnswer}</p>
-                  </div>
-                )}
-              </>
+              userAnswer !== question.correctAnswer && (
+                <div className="mt-4 p-3 bg-green-100 border-l-4 border-green-500 rounded">
+                  <p className="text-sm text-gray-700">Correct answer:</p>
+                  <p className="font-semibold text-green-700">{question.correctAnswer}</p>
+                </div>
+              )
             )}
           </div>
         );

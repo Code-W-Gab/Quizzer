@@ -3,6 +3,22 @@ import { useNavigate } from "react-router-dom";
 export default function ExamResults({ score, questions, userAnswers, onRetake }) {
   const navigate = useNavigate();
 
+  // Add partial match function
+  const isPartialMatch = (userAns, correctAns) => {
+    if (!userAns || !correctAns) return false;
+    
+    const userLower = userAns.trim().toLowerCase();
+    const correctLower = correctAns.trim().toLowerCase();
+    
+    if (userLower === correctLower) return true;
+    
+    if (userLower.length >= 1 && correctLower.includes(userLower)) {
+      return true;
+    }
+    
+    return false;
+  };
+
   return (
     <div className="min-h-screen bg-gray-300 dark:dark:bg-[#222222] p-8">
       <div className="max-w-4xl mx-auto bg-white dark:bg-gray-600 rounded-lg shadow-lg p-8">
@@ -20,7 +36,12 @@ export default function ExamResults({ score, questions, userAnswers, onRetake })
         
         <div className="space-y-4">
           {questions.map((question, index) => {
-            const isCorrect = userAnswers[index] === question.correctAnswer;
+            // Check if answer is correct based on question type
+            const isCorrect = question.questionType === 'short-text'
+              ? isPartialMatch(userAnswers[index], question.correctAnswer)
+              : userAnswers[index] === question.correctAnswer;
+            
+            const isExactMatch = userAnswers[index] === question.correctAnswer;
             
             return (
               <div 
@@ -38,6 +59,12 @@ export default function ExamResults({ score, questions, userAnswers, onRetake })
                     {userAnswers[index] || 'Not answered'}
                   </span>
                 </p>
+                {isCorrect && !isExactMatch && question.questionType === 'short-text' && (
+                  <p className="text-sm">
+                    <span className="font-semibold">Complete Answer:</span>{" "}
+                    <span className="text-green-600">{question.correctAnswer}</span>
+                  </p>
+                )}
                 {!isCorrect && (
                   <p className="text-sm">
                     <span className="font-semibold">Correct Answer:</span>{" "}

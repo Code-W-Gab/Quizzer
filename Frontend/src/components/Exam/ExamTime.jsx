@@ -71,11 +71,38 @@ export default function ExamTime() {
     }
   };
 
+  const isPartialMatch = (userAns, correctAns) => {
+    if (!userAns || !correctAns) return false;
+    
+    const userLower = userAns.trim().toLowerCase();
+    const correctLower = correctAns.trim().toLowerCase();
+    
+    // Exact match
+    if (userLower === correctLower) return true;
+    
+    // Check if user answer exists anywhere in correct answer (minimum 1 character)
+    if (userLower.length >= 1 && correctLower.includes(userLower)) {
+      return true;
+    }
+    
+    return false;
+  };
+
   const calculateScore = () => {
     let correct = 0;
     questions.forEach((question, index) => {
-      if (userAnswers[index] === question.correctAnswer) {
-        correct++;
+      const userAnswer = userAnswers[index];
+      
+      // For short-text questions, use partial matching
+      if (question.questionType === 'short-text') {
+        if (isPartialMatch(userAnswer, question.correctAnswer)) {
+          correct++;
+        }
+      } else {
+        // For multiple-choice and true-false, use exact matching
+        if (userAnswer === question.correctAnswer) {
+          correct++;
+        }
       }
     });
     return {
