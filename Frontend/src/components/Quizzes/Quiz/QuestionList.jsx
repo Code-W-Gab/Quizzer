@@ -59,7 +59,7 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
         </div>
 
         {/* Mobile Size */}
-        <div className="mt-6">
+        <div className="mt-6 md:hidden">
           {questionFolder.map((folder) => {
             return(
               <div key={folder._id} className="border-b border-gray-600 px-6">
