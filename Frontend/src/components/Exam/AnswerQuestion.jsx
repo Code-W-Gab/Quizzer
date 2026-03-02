@@ -90,7 +90,7 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
                 key={index}
                 onClick={() => handleOptionClick(option)}
                 disabled={hasAnswered}
-                className={`rounded-md py-2 text-lg transition-colors ${
+                className={`rounded-md p-2 text-md md:text-lg transition-colors ${
                   getButtonStyle(option)
                 } ${hasAnswered ? 'cursor-not-allowed' : 'hover:opacity-80'}`}
               >
@@ -154,8 +154,8 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
 
   return (
     <div className="flex justify-center mt-10">
-      <div className="w-120 bg-gray-300 dark:bg-gray-600 dark:text-white p-6 rounded-md">
-        <p className="text-lg font-semibold text-center mb-4">{question.questionText}</p>
+      <div className="w-80 md:w-120 bg-gray-300 dark:bg-gray-600 dark:text-white p-6 rounded-md">
+        <p className="text-md md:text-lg font-semibold text-center mb-4">{question.questionText}</p>
         
         {renderQuestionInput()}
 
