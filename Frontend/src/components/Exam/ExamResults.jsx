@@ -21,19 +21,19 @@ export default function ExamResults({ score, questions, userAnswers, onRetake })
   return (
     <div className="min-h-screen bg-gray-300 dark:dark:bg-[#222222]">
       <Header name={"Review"} to={'/Exam'}/>
-      <div className="p-8">
-        <div className="max-w-4xl mx-auto bg-white dark:bg-gray-600 rounded-lg shadow-lg p-8">
-          <h1 className="text-3xl font-bold text-center mb-6 dark:text-white">Exam Results</h1>
+      <div className="p-6 md:p-8">
+        <div className="max-w-4xl mx-auto bg-white dark:bg-gray-600 rounded-lg shadow-lg p-4 md:p-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 dark:text-white">Exam Results</h1>
           
           <div className="bg-green-100 border-2 border-green-500 rounded-lg p-6 mb-8 text-center">
-            <p className="text-5xl font-bold text-green-600 mb-2">{score.percentage}%</p>
-            <p className="text-xl">
+            <p className="text-4xl md:text-5xl font-bold text-green-600 mb-2">{score.percentage}%</p>
+            <p className="text-lg md:text-xl">
               You got <span className="font-bold">{score.correct}</span> out of{" "}
               <span className="font-bold">{score.total}</span> correct
             </p>
           </div>
 
-          <h2 className="text-2xl font-semibold mb-4 dark:text-white">Review Your Answers</h2>
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 dark:text-white">Review Your Answers</h2>
           
           <div className="space-y-4">
             {questions.map((question, index) => {
