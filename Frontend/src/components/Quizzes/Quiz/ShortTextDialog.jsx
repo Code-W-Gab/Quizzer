@@ -21,8 +21,8 @@ export default function ShortTextDialog({onClose, getAllQuizByFolder}) {
 
   return(
     <div>
-      <div className="bg-white dark:bg-gray-600 dark:text-white w-100 px-4 py-6 rounded-md">
-        <h1 className="text-xl font-semibold mb-4">Short Text</h1>
+      <div className="bg-white dark:bg-gray-600 dark:text-white w-80 md:w-100 px-4 py-6 rounded-md">
+        <h1 className="text-lg md:text-xl font-semibold mb-4">Short Text</h1>
         
         <div className="relative mb-6">
           <input 
@@ -36,7 +36,7 @@ export default function ShortTextDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="question"
-            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
+            className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >
@@ -56,7 +56,7 @@ export default function ShortTextDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="correctAnswer"
-            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
+            className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >

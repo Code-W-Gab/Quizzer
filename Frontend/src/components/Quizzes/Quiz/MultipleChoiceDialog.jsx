@@ -23,8 +23,8 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
 
   return(
     <div>
-      <div className="bg-white dark:bg-gray-600 dark:text-white w-100 px-4 py-6 rounded-md">
-        <h1 className="text-xl font-semibold mb-4">Multiple Choice</h1>
+      <div className="bg-white dark:bg-gray-600 dark:text-white w-80 md:w-100 px-4 py-6 rounded-md">
+        <h1 className="text-lg md:text-xl font-semibold mb-4">Multiple Choice</h1>
         <div className="relative mb-6">
           <input 
             className="border-b-2 w-full pt-4 pb-1 border-b-gray-600 dark:border-b-white dark:text-white text-sm focus:outline-none peer placeholder-transparent
@@ -37,7 +37,7 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="question"
-            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
+            className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >
@@ -56,7 +56,7 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="correctAnswer"
-            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
+            className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >
@@ -76,7 +76,7 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="wrongAnswer1"
-            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
+            className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >
@@ -97,7 +97,7 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="wrongAnswer2"
-            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
+            className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >
@@ -116,7 +116,7 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
           />
           <label 
             htmlFor="wrongAnswer3"
-            className="absolute left-0 -top-3 text-sm text-gray-600 dark:text-white transition-all
+            className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600 dark:text-white transition-all
                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600 dark:peer-focus:text-green-400"
           >

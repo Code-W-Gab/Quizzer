@@ -14,13 +14,23 @@ export default function AddQuestionFolder({getAllQuizByFolder}) {
   return(
     <div>
       <div className="flex justify-between items-center mt-3 ">
-        <h1 className="text-xl font-bold dark:text-white">Manage Question</h1>
+        <h1 className="text-md md:text-xl font-bold dark:text-white">Manage Question</h1>
         <button
           onClick={() => setIsModalOpen(true)} 
-          className="bg-green-500 text-white p-2 flex items-center gap-2 rounded-md"
+          className="hidden bg-green-500 text-white p-2 md:flex items-center gap-2 rounded-md"
         >
           <Plus/>
           <span>Add Question</span>
+        </button>
+      </div>
+
+      {/* Mobile size */}
+      <div className="md:hidden fixed right-6 bottom-8">
+        <button 
+          onClick={() => setIsModalOpen(true)} 
+          className="bg-green-500 text-white p-3 rounded-full"
+        >
+          <Plus/>
         </button>
       </div>
 
