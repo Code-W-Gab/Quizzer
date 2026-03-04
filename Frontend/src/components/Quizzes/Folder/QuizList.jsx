@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { deleteQuizFolder, getAllQuizByFolder } from "../../../services/quizService";
 import EllipsisNavbar from "../../Common/EllipsisNavbar";
 import toast from "react-hot-toast";
-import AddQuizFolder from "./AddQuizFolder";
 import EditQuizFolder from "./EditQuizFolder";
 import Delete from "../../Common/Delete";
+import MobileEllipsisNavbar from "../../Common/MobileEllipsisNavBar";
 
 export default function QuizList({quizFolder, fetchQuizFolder}) {
   const [questionCounts, setQuestionCounts] = useState({})
@@ -81,11 +81,18 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
           const questionCount = questionCounts[folder._id] || 0
 
           return(
-            <div className="border-b px-3 border-gray-600 dark:hover:bg-green-400 dark:text-white" key={folder._id}>
+            <div className="flex items-center justify-between gap-10 border-b px-3 border-gray-600 dark:hover:bg-green-400 dark:text-white" key={folder._id}>
               <Link to={`/Quizzes/${folder.name}/${folder._id}`}>
                 <h1 className="text-md font-semibold mb-1 mt-3 break-all">{folder.name}</h1>
                 <p className="text-xs mb-3 text-gray-700 dark:text-gray-300">{questionCount} {questionCount === 1 ? 'question' : 'questions'}</p>
               </Link>
+              <MobileEllipsisNavbar
+                onDelete={() => {
+                  setIsDeleteModalOpen(true)
+                  setSelectedId(folder._id)
+                }}
+                onEdit={() => handleEditFolder(folder._id)}
+              />
             </div>
           )
         })}

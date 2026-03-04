@@ -32,7 +32,7 @@ export default function EditQuizFolder({folderId, onClose, fetchQuizFolder}) {
 
   
   return(
-    <div className="bg-white dark:bg-gray-600 w-90 px-4 py-6 rounded-md z-50">
+    <div className="bg-white dark:bg-gray-600 w-80 md:w-90 px-4 py-6 rounded-md z-50">
       <h1 className='text-lg font-semibold dark:text-white'>Quiz Name</h1>
       <div className="relative mb-3">
         <input 
