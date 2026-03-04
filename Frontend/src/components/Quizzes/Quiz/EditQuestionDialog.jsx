@@ -49,8 +49,8 @@ export default function EditQuestionDialog({ question, onClose, getAllQuizByFold
   }
 
   return (
-    <div className="bg-white dark:bg-gray-600 dark:text-white w-100 px-4 py-6 rounded-md z-50">
-      <h1 className='text-xl font-semibold mb-4'>{getTitle()}</h1>
+    <div className="bg-white dark:bg-gray-600 dark:text-white w-80 md:w-100 px-4 py-6 rounded-md z-50">
+      <h1 className='text-lg md:text-xl font-semibold mb-6'>{getTitle()}</h1>
       
       {/* Question Text */}
       <div className="relative mb-6">

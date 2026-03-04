@@ -11,7 +11,7 @@ export default function MobileEllipsisNavbar({ onDelete, onEdit }) {
       <MenuItems
         transition
         anchor="bottom end"
-        className="w-26 bg-gray-300 rounded-md"
+        className="w-30 bg-gray-300 rounded-md"
       >
         <MenuItem>
           <button 

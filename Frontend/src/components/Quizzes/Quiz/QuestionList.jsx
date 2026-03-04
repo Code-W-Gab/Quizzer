@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { useState } from "react";
 import EditQuestionDialog from "./EditQuestionDialog";
 import Delete from "../../Common/Delete";
+import MobileEllipsisNavbar from "../../Common/MobileEllipsisNavBar";
 
 export default function QuestionList({questionFolder, getAllQuizByFolder}) {
   const { name } = useParams()
@@ -35,7 +36,7 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
     <div className="bg-white dark:bg-[#222222] min-h-screen">
       <Header name={name} to={"/Quizzes"}/>
       <div className="py-3">
-        <div className="px-6">
+        <div className="px-4">
           <AddQuestionFolder getAllQuizByFolder={getAllQuizByFolder}/>
         </div>
         
@@ -62,9 +63,18 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
         <div className="mt-6 md:hidden">
           {questionFolder.map((folder) => {
             return(
-              <div key={folder._id} className="border-b border-gray-600 px-6">
-                <p className="mt-6 dark:text-white">{folder.questionText}</p>
-                <p className="text-green-500 dark:text-green-400 mb-2 mt-1">{folder.correctAnswer}</p>
+              <div key={folder._id} className="flex items-center justify-between gap-10 dark:text-white border-b border-gray-600 px-4">
+                <div>
+                  <p className="mt-6">{folder.questionText}</p>
+                  <p className="text-green-500 dark:text-green-400 mb-2 mt-1">{folder.correctAnswer}</p>
+                </div>
+                <MobileEllipsisNavbar 
+                  onDelete={() => {
+                    setIsDeleteModalOpen(true)
+                    setSelectedId(folder._id)
+                  }}
+                  onEdit={() => handleEditQuestion(folder)}
+                />
               </div>
             )
           })}
