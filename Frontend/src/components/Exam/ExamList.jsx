@@ -13,7 +13,7 @@ export default function ExamList({quizFolder, handleCheckboxChange, selectedQuiz
           onClick={() => setIsModalOpen(true)} 
           className="cursor-auto font-semibold bg-gray-300 dark:bg-gray-600 dark:text-white rounded-md p-4 hover:bg-green-500 hover:text-white"
           >
-          <div className="flex items-center ga  -4">
+          <div className="flex items-center gap-4">
             <FolderClosed />
             <p>Quizzes</p>
           </div>
