@@ -1,5 +1,5 @@
 import QuizFolder from '../../models/quizFolderSchema.mjs';
-import Question from '../../models/questionSchema.mjs'; // Add this import
+import Question from '../../models/questionSchema.mjs';
 
 // Create a new quiz folder
 export const createQuizFolder = async (req, res) => {
@@ -10,7 +10,10 @@ export const createQuizFolder = async (req, res) => {
       return res.status(400).json({ message: 'Quiz folder name is required' });
     }
 
-    const quizFolder = new QuizFolder({ name });
+    const quizFolder = new QuizFolder({ 
+      name,
+      user: req.user.id // Add user from auth middleware
+    });
     await quizFolder.save();
 
     res.status(201).json({ 
@@ -22,23 +25,26 @@ export const createQuizFolder = async (req, res) => {
   }
 };
 
-// Get all quiz folders
+// Get all quiz folders for logged-in user only
 export const getAllQuizFolders = async (req, res) => {
   try {
-    const quizFolders = await QuizFolder.find().sort({ createdAt: -1 });
+    const quizFolders = await QuizFolder.find({ user: req.user.id }).sort({ createdAt: -1 });
     res.status(200).json({ data: quizFolders });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-// Get single quiz folder
+// Get single quiz folder (check ownership)
 export const getQuizFolder = async (req, res) => {
   try {
-    const quizFolder = await QuizFolder.findById(req.params.id);
+    const quizFolder = await QuizFolder.findOne({ 
+      _id: req.params.id,
+      user: req.user.id 
+    });
     
     if (!quizFolder) {
-      return res.status(404).json({ message: 'Quiz folder not found' });
+      return res.status(404).json({ message: 'Quiz folder not found or access denied' });
     }
 
     res.status(200).json({ data: quizFolder });
@@ -47,19 +53,19 @@ export const getQuizFolder = async (req, res) => {
   }
 };
 
-// Update quiz folder
+// Update quiz folder (check ownership)
 export const updateQuizFolder = async (req, res) => {
   try {
     const { name } = req.body;
     
-    const quizFolder = await QuizFolder.findByIdAndUpdate(
-      req.params.id,
+    const quizFolder = await QuizFolder.findOneAndUpdate(
+      { _id: req.params.id, user: req.user.id },
       { name },
       { new: true, runValidators: true }
     );
 
     if (!quizFolder) {
-      return res.status(404).json({ message: 'Quiz folder not found' });
+      return res.status(404).json({ message: 'Quiz folder not found or access denied' });
     }
 
     res.status(200).json({ 
@@ -71,13 +77,16 @@ export const updateQuizFolder = async (req, res) => {
   }
 };
 
-// Delete quiz folder and all associated questions
+// Delete quiz folder (check ownership)
 export const deleteQuizFolder = async (req, res) => {
   try {
-    const quizFolder = await QuizFolder.findByIdAndDelete(req.params.id);
+    const quizFolder = await QuizFolder.findOneAndDelete({ 
+      _id: req.params.id,
+      user: req.user.id 
+    });
 
     if (!quizFolder) {
-      return res.status(404).json({ message: 'Quiz folder not found' });
+      return res.status(404).json({ message: 'Quiz folder not found or access denied' });
     }
 
     // Delete all questions associated with this folder

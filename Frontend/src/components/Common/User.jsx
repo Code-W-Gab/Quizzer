@@ -14,7 +14,7 @@ export default function User({logout}) {
       <MenuItems
         transition
         anchor="bottom end"
-        className="w-52 bg-gray-700 dark:bg-white rounded-md shadow-lg mt-2 p-2"
+        className="w-52 bg-gray-700 dark:bg-white rounded-md shadow-lg p-2 [--anchor-gap:4px]"
       >
         <MenuItem>
           <div className="px-1 py-2 border-b border-gray-400 mb-1">

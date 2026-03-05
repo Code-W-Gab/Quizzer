@@ -1,4 +1,5 @@
 import express from 'express';
+import auth from '../middleware/auth.mjs';
 import { 
   createQuizFolder, 
   getAllQuizFolders, 
@@ -17,17 +18,17 @@ import {
 const router = express.Router();
 
 // Quiz Folder Routes
-router.post('/folders', createQuizFolder);
-router.get('/folders', getAllQuizFolders);
-router.get('/folders/:id', getQuizFolder);
-router.put('/folders/:id', updateQuizFolder);
-router.delete('/folders/:id', deleteQuizFolder);
+router.post('/folders', auth, createQuizFolder);
+router.get('/folders', auth, getAllQuizFolders);
+router.get('/folders/:id', auth, getQuizFolder);
+router.put('/folders/:id', auth, updateQuizFolder);
+router.delete('/folders/:id', auth, deleteQuizFolder);
 
 // Question Routes
-router.post('/questions', createQuestion);
-router.get('/folders/:folderId/questions', getQuestionsByFolder);
-router.post('/questions/multiple-folders', getQuestionsByMultipleFolders);
-router.put('/questions/:id', updateQuestion);
-router.delete('/questions/:id', deleteQuestion);
+router.post('/questions', auth, createQuestion);
+router.get('/folders/:folderId/questions', auth, getQuestionsByFolder);
+router.post('/questions/multiple-folders', auth, getQuestionsByMultipleFolders);
+router.put('/questions/:id', auth, updateQuestion);
+router.delete('/questions/:id', auth, deleteQuestion);
 
 export default router;
