@@ -5,6 +5,7 @@ import ShowQuizPage from "./pages/Quizzes/ShowQuizPage"
 import ExamTimePage from "./pages/Exam/ExamTimePage"
 import LoginPage from "./pages/Auth/LoginPage"
 import RegisterPage from "./pages/Auth/RegisterPage"
+import PrivateRoute from "./components/Common/PrivateRoute"
 
 export default function App() {
   return(
@@ -13,13 +14,29 @@ export default function App() {
           <Route path="/" element={<Navigate to={"/Auth/Login"}/>}/>
         {/* Exam Page */}
         <Route>
-          <Route path="/Exam" element={<ExamPage/>}/>
-          <Route path="/Exam/Start-Exam" element={<ExamTimePage/>}/>
+          <Route path="/Exam" element={
+            <PrivateRoute>
+              <ExamPage/>
+            </PrivateRoute>
+          }/>
+          <Route path="/Exam/Start-Exam" element={
+            <PrivateRoute>
+              <ExamTimePage/>
+            </PrivateRoute>
+          }/>
         </Route>
         {/* Quizzes Page */}
         <Route>
-          <Route path="/Quizzes" element={<QuizzesPage/>}/>
-          <Route path="/Quizzes/:name/:id" element={<ShowQuizPage/>}/>
+          <Route path="/Quizzes" element={
+            <PrivateRoute>
+              <QuizzesPage/>
+            </PrivateRoute>
+          }/>
+          <Route path="/Quizzes/:name/:id" element={
+            <PrivateRoute>
+              <ShowQuizPage/>
+            </PrivateRoute>
+          }/>
         </Route>
         {/* Auth Page */}
         <Route>

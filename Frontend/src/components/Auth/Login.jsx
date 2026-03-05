@@ -1,6 +1,41 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast'
+import { login } from "../../services/userService";
+
 
 export default function Login() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const navigate = useNavigate();
+
+  function handleLogin(e) {
+    e.preventDefault()
+
+    if (!email.trim() || !password.trim()) {
+      toast.error("Credentials cannot be empty!")
+      return
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+      toast.error("Please enter a valid email address!")
+      return
+    }
+
+    login(email, password)
+      .then(res => {
+        localStorage.setItem("token", res.data.token);
+        setEmail("")
+        setPassword("")
+        toast.success("Successfully Login!")
+        navigate("/Exam")
+      })
+      .catch(err => {
+        console.log(err)
+        toast.error("Invalid Credential.")
+        navigate("/")
+      })
+  }
   return(
     <main className="flex items-center justify-center min-h-screen">
       <div className="bg-white p-6 w-90 rounded-md">
@@ -9,6 +44,8 @@ export default function Login() {
           <input 
             className="border-b-2 w-full pt-4 pb-1 border-b-gray-600  text-sm focus:outline-none peer placeholder-transparent
                     focus:border-green-600 " 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             type="text"
             placeholder="Email"
             id="email"
@@ -26,6 +63,8 @@ export default function Login() {
           <input 
             className="border-b-2 w-full pt-4 pb-1 border-b-gray-600  text-sm focus:outline-none peer placeholder-transparent
                     focus:border-green-600 " 
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}        
             type="text"
             placeholder="Password"
             id="pass"
@@ -40,7 +79,7 @@ export default function Login() {
           </label>
         </div>
         <div>
-          <button className="bg-amber-300 w-full rounded-md py-1.5 mb-2">Login</button>
+          <button className="bg-amber-300 w-full rounded-md py-1.5 mb-2" onClick={handleLogin}>Login</button>
           <p className="text-center">Don't have an account? <Link to={"/Auth/Registration"} className="underline">Register</Link></p>
         </div>
       </div>

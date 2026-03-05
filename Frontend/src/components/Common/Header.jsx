@@ -1,10 +1,11 @@
 import { Moon } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from "react-router-dom";
-import profile from '../../assets/profile.jpg';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import quiz from '../../assets/quiz-icon.png';
+import User from './User';
 
 export default function Header() {
+  const navigate = useNavigate();
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const saved = localStorage.getItem('darkMode');
     return saved === 'true';
@@ -33,6 +34,13 @@ export default function Header() {
     { to: '/Quizzes', label: "Quizzes"}
   ]
 
+  function handleLogout() {
+    // Remove token or user info from localStorage/sessionStorage
+    localStorage.removeItem("token"); // adjust key as needed
+    // Redirect and replace history
+    navigate("/", { replace: true });
+  }
+
   return(
     <div className="flex items-center justify-between bg-gray-300 dark:bg-gray-600 px-4 rounded-lg">
       <div className="flex items-center">
@@ -59,13 +67,11 @@ export default function Header() {
           })}
         </div>
       </div>
-      <div className='flex items-center gap-4'>
+      <div className='flex items-center gap-3'>
         <button className='bg-gray-200 hover:bg-gray-100 dark:text-white dark:bg-gray-500 dark:hover:bg-gray-400 p-2 rounded-md cursor-pointer' onClick={toggleDarkMode}>
-          <Moon />
+          <Moon className="size-6" />
         </button>
-        <div className='hover:bg-gray-200  p-0.5 rounded-sm'>
-          <img src={profile} className='size-10 rounded-sm'/>
-        </div>
+        <User logout={() => handleLogout()}/>
       </div>
     </div>
   )
