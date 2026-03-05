@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost/Quizzer");
-    console.log("MongoDB is Connected");
+    await mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Quizzer");
+    console.log("MongoDB Atlas is Connected");
   } catch (err) {
-    console.log(`Error: ${err}`);
+    console.log(`Error: ${err.message}`);
   }
 };
 
