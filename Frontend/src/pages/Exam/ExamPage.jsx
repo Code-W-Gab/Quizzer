@@ -27,7 +27,7 @@ export default function ExamPage() {
       <div className="md:hidden">
         <MobileHeader/>
       </div>
-      <div className="mt-8">
+      <div className="mt-4">
         <Exam quizFolder={quizFolder}/>
       </div>
     </div>

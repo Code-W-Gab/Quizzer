@@ -27,7 +27,7 @@ export default function QuizzesPage() {
       <div className="md:hidden">
         <MobileHeader/>
       </div>
-      <div className="mt-8">
+      <div className="mt-4">
         <Quizzes quizFolder={quizFolder} fetchQuizFolder={fetchQuizFolder}/>
       </div>
     </div>

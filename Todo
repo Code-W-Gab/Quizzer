@@ -1,3 +1,2 @@
 CHESQUIZ
-3. Add login and logout
-4. change the mongodb to mongo atlas
+1. add to all if empty it must show indicator

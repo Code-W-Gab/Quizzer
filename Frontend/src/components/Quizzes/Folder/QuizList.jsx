@@ -6,12 +6,31 @@ import toast from "react-hot-toast";
 import EditQuizFolder from "./EditQuizFolder";
 import Delete from "../../Common/Delete";
 import MobileEllipsisNavbar from "../../Common/MobileEllipsisNavBar";
+import ShareQuizDialog from '../../Quizzes/Quiz/ShareQuizDialog'; // Add dialog
+import { generateShareCode as generateCode } from '../../../services/quizService';
 
 export default function QuizList({quizFolder, fetchQuizFolder}) {
   const [questionCounts, setQuestionCounts] = useState({})
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState(null)
+  const [shareDialog, setShareDialog] = useState(null);
+
+  const handleGenerateCode = async () => {
+    try {
+      const result = await generateCode(shareDialog._id);
+      toast.success('Share code generated successfully!');
+      // Update the folder in state with new shareCode
+      setShareDialog({
+        ...shareDialog,
+        shareCode: result.shareCode,
+        isShared: true
+      });
+      fetchQuizFolder(); // Refresh folder list
+    } catch (error) {
+      toast.error('Failed to generate share code');
+    }
+  };
 
   useEffect(() => {
     // Fetch question counts for all folders
@@ -66,10 +85,11 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
                   setSelectedId(folder._id)
                 }}
                 onEdit={() => handleEditFolder(folder._id)}
+                
               />
               <Link to={`/Quizzes/${folder.name}/${folder._id}`}>
                 <h1 className="text-xl font-semibold mb-1 mt-4 break-all">{folder.name}</h1>
-                <p className="text-sm mb-3">{questionCount} {questionCount === 1 ? 'question' : 'questions'}</p>
+                <p className="tonShare={() => setShareDialog(folder)}ext-sm mb-3">{questionCount} {questionCount === 1 ? 'question' : 'questions'}</p>
               </Link>
             </div>
           )
@@ -92,11 +112,24 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
                   setSelectedId(folder._id)
                 }}
                 onEdit={() => handleEditFolder(folder._id)}
+                onShare={() => setShareDialog(folder)}
               />
             </div>
           )
         })}
       </div>
+
+      {shareDialog && (
+        <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center z-40">
+          <div className="z-50">
+              <ShareQuizDialog
+                folder={shareDialog}
+                onGenerateCode={handleGenerateCode}
+                onClose={() => setShareDialog(null)}
+              />
+          </div>
+        </div>
+      )}
 
       {isEditModalOpen && (
         <div className="fixed inset-0 flex bg-gray-800/50 items-center justify-center z-40">

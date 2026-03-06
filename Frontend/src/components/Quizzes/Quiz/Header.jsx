@@ -8,7 +8,7 @@ export default function Header({name, to}) {
         <Link to={to}>
           <ArrowLeft />
         </Link>
-        <h1 className="text-lg font-semibold">{name}</h1>
+        <h1 className="text-lg font-semibold break-all">{name}</h1>
       </div>
     </div>
   )

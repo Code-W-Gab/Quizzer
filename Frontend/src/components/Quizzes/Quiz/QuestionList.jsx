@@ -35,16 +35,16 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
   return(
     <div className="bg-white dark:bg-[#222222] min-h-screen">
       <Header name={name} to={"/Quizzes"}/>
-      <div className="py-3">
-        <div className="px-4">
+      <div className="md:px-10 lg:px-12 xl:px-14 md:py-4 py-3">
+        <div className="px-4 md:px-0">
           <AddQuestionFolder getAllQuizByFolder={getAllQuizByFolder}/>
         </div>
         
         {/* Table to Desktop Size */}
-        <div className="hidden md:grid grid-cols-4 gap-5 mt-6 px-6 items-start">
+        <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 mt-6 items-start">
           {questionFolder.map((folder) => {
             return(
-              <div key={folder._id} className="bg-white dark:bg-gray-600 dark:text-white px-6 py-2 rounded-md relative">
+              <div key={folder._id} className="bg-gray-300 dark:bg-gray-600 dark:text-white p-3 md:p-4 rounded-md relative">
                 <EllipsisNavbar 
                   onDelete={() => {
                     setIsDeleteModalOpen(true)
@@ -60,7 +60,7 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
         </div>
 
         {/* Mobile Size */}
-        <div className="mt-6 md:hidden">
+        <div className="md:hidden">
           {questionFolder.map((folder) => {
             return(
               <div key={folder._id} className="flex items-center justify-between gap-10 dark:text-white border-b border-gray-600 px-4">

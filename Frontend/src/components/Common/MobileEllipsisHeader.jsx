@@ -1,12 +1,12 @@
-import { Ellipsis, Pencil, Trash, Share2 } from "lucide-react";
+import { EllipsisVertical, Moon, Download, Sun, LogOut } from "lucide-react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
-export default function EllipsisNavbar({ onDelete, onEdit, onShare }) {
+export default function MobileEllipsisHeader({onImport, onToggle, onLogout, isDarkMode}) {
   return (
     <div className="absolute top-2 right-2">
       <Menu>
         <MenuButton>
-          <Ellipsis/>
+          <EllipsisVertical />
         </MenuButton>
 
         <MenuItems
@@ -16,29 +16,38 @@ export default function EllipsisNavbar({ onDelete, onEdit, onShare }) {
         >
           <MenuItem>
             <button
-              onClick={onShare}
+              onClick={onImport}
               className="group flex w-full items-center gap-2 px-3 py-1 hover:bg-gray-500 hover:text-white"
             >
-              <Share2 className="size-4"/>
-              Share
+              <Download className="size-4"/>
+              Download
             </button>
           </MenuItem>
           <MenuItem>
-            <button 
-              onClick={onEdit}
+            <button
+              onClick={onToggle}
               className="group flex w-full items-center gap-2 px-3 py-1 hover:bg-gray-500 hover:text-white"
             >
-              <Pencil className="size-4"/>
-              Edit
+              {isDarkMode ? (
+                <>
+                  <Sun className="size-4"/>
+                  <span>LightMode</span>
+                </>
+              ) : (
+                <>
+                  <Moon className="size-4"/>
+                  <span>DarkMode</span>
+                </>
+              )}
             </button>
           </MenuItem>
           <MenuItem>
-            <button 
-              onClick={onDelete}
+            <button
+              onClick={onLogout}
               className="group flex w-full items-center gap-2 px-3 py-1 hover:bg-gray-500 hover:text-white"
             >
-              <Trash className="size-4"/>
-              Delete
+              <LogOut className="size-4"/>
+              Logout
             </button>
           </MenuItem>
         </MenuItems>

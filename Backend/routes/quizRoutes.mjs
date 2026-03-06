@@ -5,7 +5,9 @@ import {
   getAllQuizFolders, 
   getQuizFolder, 
   updateQuizFolder, 
-  deleteQuizFolder 
+  deleteQuizFolder, 
+  generateShareCode, 
+  importQuizByShareCode
 } from '../controllers/quiz/quizFolderController.mjs';
 import { 
   createQuestion, 
@@ -23,6 +25,10 @@ router.get('/folders', auth, getAllQuizFolders);
 router.get('/folders/:id', auth, getQuizFolder);
 router.put('/folders/:id', auth, updateQuizFolder);
 router.delete('/folders/:id', auth, deleteQuizFolder);
+
+// NEW SHARING ROUTES
+router.post('/folder/:id/share', auth, generateShareCode);
+router.post('/folder/import', auth, importQuizByShareCode);
 
 // Question Routes
 router.post('/questions', auth, createQuestion);
