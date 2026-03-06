@@ -11,7 +11,7 @@ export default function ExamList({quizFolder, handleCheckboxChange, selectedQuiz
       <div className="hidden md:grid grid-cols-4">
         <button 
           onClick={() => setIsModalOpen(true)} 
-          className="cursor-auto font-semibold bg-gray-300 dark:bg-gray-600 dark:text-white rounded-md p-4 hover:bg-green-500 hover:text-white"
+          className="cursor-auto font-semibold bg-gray-300 dark:bg-gray-600 dark:text-white rounded-md p-4 hover:bg-blue-500 hover:text-white"
           >
           <div className="flex items-center gap-4">
             <FolderClosed />

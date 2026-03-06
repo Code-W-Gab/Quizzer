@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 export default function Header({name, to}) {
   return(
     <div>
-      <div className="flex items-center gap-4 bg-green-500 text-white py-3 px-4 md:px-6">
+      <div className="flex items-center gap-4 bg-blue-500 text-white py-3 px-4 md:px-6">
         <Link to={to}>
           <ArrowLeft />
         </Link>

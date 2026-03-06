@@ -36,13 +36,13 @@ export default function EditQuizFolder({folderId, onClose, fetchQuizFolder}) {
       <div className="relative mb-3">
         <input 
           className="border-b-2 w-full pt-4 pb-1 border-b-gray-600 dark:border-b-white dark:text-white text-sm focus:outline-none peer placeholder-transparent
-                  focus:border-green-600 dark:focus:border-green-400" 
+                  focus:border-blue-600 dark:focus:border-blue-400" 
           type="text"
           value={folderName}
           onChange={(e) => setFolderName(e.target.value)}
         />
       </div>
-      <div className="mt-5 flex items-center justify-end gap-4 text-sm text-green-600 dark:text-green-400">
+      <div className="mt-5 flex items-center justify-end gap-4 text-sm text-blue-600 dark:text-blue-400">
         <button onClick={onClose}>CANCEL</button>
         <button onClick={handleSave}>SAVE</button>
       </div>

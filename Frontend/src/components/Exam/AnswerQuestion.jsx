@@ -47,11 +47,11 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
     const isUserAnswer = option === userAnswer;
     
     if (isUserAnswer && isCorrect) {
-      return 'bg-green-500 text-white'; // User answered correctly
+      return 'bg-blue-500 text-white'; // User answered correctly
     } else if (isUserAnswer && !isCorrect) {
       return 'bg-red-500 text-white'; // User answered incorrectly
     } else if (isCorrect) {
-      return 'bg-green-500 text-white'; // Show correct answer
+      return 'bg-blue-500 text-white'; // Show correct answer
     }
     return 'bg-gray-400'; // Other options
   };
@@ -110,9 +110,9 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
               className={`border-b-2 w-full pt-4 pb-1 text-sm focus:outline-none peer placeholder-transparent
                         ${hasAnswered 
                           ? (isCorrectAnswer 
-                              ? 'border-b-green-500 dark:border-b-green-400' 
+                              ? 'border-b-blue-500 dark:border-b-blue-400' 
                               : 'border-b-red-500')
-                          : 'border-b-gray-600 dark:border-white focus:border-green-600'
+                          : 'border-b-gray-600 dark:border-white focus:border-blue-600'
                         }`}
               type="text"
               placeholder="Your answer"
@@ -124,22 +124,22 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
             {!hasAnswered ? (
               <button 
                 onClick={handleTextSubmit}
-                className="bg-green-500 w-full mt-4 py-2 rounded-sm text-white hover:bg-green-600"
+                className="bg-blue-500 w-full mt-4 py-2 rounded-sm text-white hover:bg-blue-600"
               >
                 Check
               </button>
             ) : (
               <>
                 {isCorrectAnswer && !isExactMatch && (
-                  <div className="mt-4 p-3 bg-green-100 border-l-4 border-green-500 rounded">
+                  <div className="mt-4 p-3 bg-blue-100 border-l-4 border-blue-500 rounded">
                     <p className="text-sm text-gray-700">Correct! Complete answer:</p>
-                    <p className="font-semibold text-green-700">{question.correctAnswer}</p>
+                    <p className="font-semibold text-blue-700">{question.correctAnswer}</p>
                   </div>
                 )}
                 {!isCorrectAnswer && (
                   <div className="mt-4 p-3 bg-red-100 border-l-4 border-red-500 rounded">
                     <p className="text-sm text-gray-700">Correct answer:</p>
-                    <p className="font-semibold text-green-700">{question.correctAnswer}</p>
+                    <p className="font-semibold text-blue-700">{question.correctAnswer}</p>
                   </div>
                 )}
               </>
@@ -162,7 +162,7 @@ export default function AnswerQuestion({ question, onAnswer, userAnswer, onNext,
         {hasAnswered && (
           <button 
             onClick={onNext}
-            className="bg-green-500 w-full mt-4 py-2 rounded-md text-white font-semibold hover:bg-green-600"
+            className="bg-blue-500 w-full mt-4 py-2 rounded-md text-white font-semibold hover:bg-blue-600"
           >
             {isLastQuestion ? 'Show Results' : 'Next Question'}
           </button>

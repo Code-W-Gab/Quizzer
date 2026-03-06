@@ -6,7 +6,7 @@ export default function MobileEllipsisHeader({onImport, onToggle, onLogout, isDa
     <div className="absolute top-2 right-2">
       <Menu>
         <MenuButton>
-          <EllipsisVertical />
+          <EllipsisVertical className="text-white"/>
         </MenuButton>
 
         <MenuItems

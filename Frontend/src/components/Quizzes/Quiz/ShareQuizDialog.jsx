@@ -32,11 +32,11 @@ export default function ShareQuizDialog({ folder, onGenerateCode, onClose }) {
               type="text"
               value={folder.shareCode}
               readOnly
-              className="flex-1 py-1 md:py-1.5 text-xl font-mono font-bold text-center border-2 border-green-500 rounded-lg bg-gray-50 dark:bg-gray-700 dark:text-white"
+              className="flex-1 py-1 md:py-1.5 text-xl font-mono font-bold text-center border-2 border-blue-500 rounded-lg bg-gray-50 dark:bg-gray-700 dark:text-white"
             />
             <button
               onClick={handleCopy}
-              className="p-2.5 md:p-3 bg-green-500 hover:bg-green-600 text-white rounded-lg"
+              className="p-2.5 md:p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
             >
               {copied ? <Check className="size-5" /> : <Copy className="size-5" />}
             </button>
@@ -54,7 +54,7 @@ export default function ShareQuizDialog({ folder, onGenerateCode, onClose }) {
           
           <button
             onClick={onGenerateCode}
-            className="w-full py-1.5 md:py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold"
+            className="w-full py-1.5 md:py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold"
           >
             Generate Share Code
           </button>

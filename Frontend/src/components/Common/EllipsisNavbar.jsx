@@ -12,7 +12,7 @@ export default function EllipsisNavbar({ onDelete, onEdit, onShare }) {
         <MenuItems
           transition
           anchor="bottom end"
-          className="w-30 bg-gray-300 rounded-md"
+          className="w-30 bg-gray-200 dark:bg-gray-300 rounded-md"
         >
           <MenuItem>
             <button

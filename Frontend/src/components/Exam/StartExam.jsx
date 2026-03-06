@@ -20,7 +20,7 @@ export default function StartExam({selectedQuizzes}) {
         <h1 className="text-md dark:text-white px-3 md:text-lg lg:text-xl font-bold">Manage Exam</h1>
         <button
           onClick={handleOk}
-          className="hidden bg-green-500 dark:bg-green-400 text-white py-2 px-6 md:flex items-center gap-2 rounded-md"
+          className="hidden bg-blue-500 dark:bg-blue-400 text-white py-2 px-6 md:flex items-center gap-2 rounded-md"
         >
           <Play size={20}/>
           <span>Start</span>
@@ -31,7 +31,7 @@ export default function StartExam({selectedQuizzes}) {
       <div className="md:hidden fixed right-6 bottom-8">
         <button 
           onClick={handleOk}
-          className="bg-green-500 text-white p-3 rounded-full"
+          className="bg-blue-500 text-white p-3 rounded-full"
         >
           <Play/>
         </button>

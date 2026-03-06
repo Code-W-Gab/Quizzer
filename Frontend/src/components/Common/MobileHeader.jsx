@@ -55,7 +55,7 @@ export default function Header() {
   };
 
   return(
-    <header className='bg-green-500'>
+    <header className='bg-blue-500'>
       <div className="px-4 pt-4 flex items-center justify-between">
         <div>
           <h1 className='text-white font-semibold text-lg'>ChesQuiz</h1>

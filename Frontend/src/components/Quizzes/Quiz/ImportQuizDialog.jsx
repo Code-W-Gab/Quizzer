@@ -45,7 +45,7 @@ export default function ImportQuizDialog({ onImport, onClose }) {
             onChange={(e) => setShareCode(e.target.value.toUpperCase())}
             placeholder="e.g., A3B5C7D9"
             maxLength={8}
-            className="w-full px-4 py-1 md:py-2 text-lg md:text-xl font-mono font-bold text-center border rounded-lg focus:outline-none focus:border-green-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+            className="w-full px-4 py-1 md:py-2 text-lg md:text-xl font-mono font-bold text-center border rounded-lg focus:outline-none focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
           />
         </div>
 
@@ -65,7 +65,7 @@ export default function ImportQuizDialog({ onImport, onClose }) {
           <button
             onClick={handleImport}
             disabled={loading}
-            className="flex-1 py-1 md:py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold disabled:opacity-50"
+            className="flex-1 py-1 md:py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold disabled:opacity-50"
           >
             {loading ? 'Importing...' : 'Import'}
           </button>

@@ -6,7 +6,7 @@ export default function Header({ currentQuestion, totalQuestions }) {
   const [isExitModalOpen, setIsExitModalOpen] = useState(false)
   return (
     <div>
-      <div className="bg-green-500 text-white p-4 flex items-center gap-5">
+      <div className="bg-blue-500 text-white p-4 flex items-center gap-5">
         <ArrowLeft onClick={() => setIsExitModalOpen(true)}/>
         <p className="text-lg">
           Question {currentQuestion} of {totalQuestions}

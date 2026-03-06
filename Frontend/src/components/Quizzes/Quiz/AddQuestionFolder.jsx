@@ -17,7 +17,7 @@ export default function AddQuestionFolder({getAllQuizByFolder}) {
         <h1 className="text-md md:text-xl font-bold dark:text-white">Manage Question</h1>
         <button
           onClick={() => setIsModalOpen(true)} 
-          className="hidden bg-green-500 text-white p-2 md:flex items-center gap-2 rounded-md"
+          className="hidden bg-blue-500 text-white p-2 md:flex items-center gap-2 rounded-md"
         >
           <Plus/>
           <span>Add Question</span>
@@ -28,7 +28,7 @@ export default function AddQuestionFolder({getAllQuizByFolder}) {
       <div className="md:hidden fixed right-6 bottom-8">
         <button 
           onClick={() => setIsModalOpen(true)} 
-          className="bg-green-500 text-white p-3 rounded-full"
+          className="bg-blue-500 text-white p-3 rounded-full"
         >
           <Plus/>
         </button>

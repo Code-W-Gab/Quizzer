@@ -11,7 +11,7 @@ export default function ExamListDialog({onClose, quizFolder, selectedQuizzes, ha
             return(
               <div key={folder._id} className="flex items-center gap-3 mb-3">
                 <input 
-                  className="size-5 accent-green-500 mt-0.5 shrink-0" 
+                  className="size-5 accent-blue-500 mt-0.5 shrink-0" 
                   type="checkbox"
                   checked={selectedQuizzes.includes(folder._id)}
                   onChange={() => handleCheckboxChange(folder._id)}
@@ -21,7 +21,7 @@ export default function ExamListDialog({onClose, quizFolder, selectedQuizzes, ha
             )
           })}
         </div>
-        <div className="mt-6 mr-2 flex justify-end gap-4 text-md text-green-600 dark:text-green-400">
+        <div className="mt-6 mr-2 flex justify-end gap-4 text-md text-blue-600 dark:text-blue-400">
           <button onClick={onClose}>Ok</button>
         </div>
       </div>

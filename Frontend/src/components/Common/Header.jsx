@@ -72,8 +72,8 @@ export default function Header() {
                   to={item.to}
                   className={`flex justify-start rounded-md w-full transition-colors dark:text-gray-200
                   ${isActive
-                    ? "text-green-600 underline dark:text-green-400"
-                    : "hover:text-green-400"
+                    ? "text-blue-600 underline dark:text-blue-400"
+                    : "hover:text-blue-400"
                   }`}
                 >
                   {item.label}

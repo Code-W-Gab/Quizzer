@@ -12,7 +12,7 @@ export default function AddFolder({fetchQuizFolder}) {
         <h1 className="text-md px-3 md:text-lg lg:text-xl font-bold">Manage Quiz</h1>
         <button 
           onClick={() => setIsQuizFolderOpen(true)}
-          className="hidden bg-green-500 dark:bg-green-400 text-white p-2 md:flex md:items-center gap-2 rounded-md"
+          className="hidden bg-blue-500 dark:bg-blue-400 text-white p-2 md:flex md:items-center gap-2 rounded-md"
         >
           <Plus/>
           <span>Add Quiz</span>
@@ -23,7 +23,7 @@ export default function AddFolder({fetchQuizFolder}) {
       <div className="md:hidden fixed right-6 bottom-8">
         <button 
           onClick={() => setIsQuizFolderOpen(true)}
-          className="bg-green-500 text-white p-3 rounded-full"
+          className="bg-blue-500 text-white p-3 rounded-full"
         >
           <Plus/>
         </button>

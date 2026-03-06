@@ -40,12 +40,12 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
         </div>
         
         {/* Table to Desktop Size */}
-        <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 mt-6 items-start">
+        <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-4 gap-5 mt-6 items-start">
           {questionFolder.length === 0
           ? <h1 className="text-lg dark:text-white">No question added!</h1>
           : questionFolder.map((folder) => {
             return(
-              <div key={folder._id} className="bg-gray-300 dark:bg-gray-600 dark:text-white p-3 md:p-4 rounded-md relative">
+              <div key={folder._id} className="bg-gray-300 dark:bg-gray-600 dark:text-white p-2 md:p-3 rounded-md relative">
                 <EllipsisNavbar 
                   onDelete={() => {
                     setIsDeleteModalOpen(true)
@@ -54,7 +54,7 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
                   onEdit={() => handleEditQuestion(folder)}
                 />
                 <p className="mt-6">{folder.questionText}</p>
-                <p className="text-green-500 dark:text-green-400 mb-3 mt-2">{folder.correctAnswer}</p>
+                <p className="text-blue-500 dark:text-blue-400 mb-3 mt-2">{folder.correctAnswer}</p>
               </div>
             )
           })}
@@ -69,7 +69,7 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
               <div key={folder._id} className="flex items-center justify-between gap-10 dark:text-white border-b border-gray-600 px-4">
                 <div>
                   <p className="mt-6">{folder.questionText}</p>
-                  <p className="text-green-500 dark:text-green-400 mb-2 mt-1">{folder.correctAnswer}</p>
+                  <p className="text-blue-500 dark:text-blue-400 mb-2 mt-1">{folder.correctAnswer}</p>
                 </div>
                 <MobileEllipsisNavbarQuestion
                   onDelete={() => {
