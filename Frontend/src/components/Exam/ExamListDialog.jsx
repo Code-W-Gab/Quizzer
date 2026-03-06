@@ -5,7 +5,9 @@ export default function ExamListDialog({onClose, quizFolder, selectedQuizzes, ha
       <div className="bg-white dark:bg-gray-600 dark:text-white w-80 md:w-90 px-4 py-6 rounded-md">
         <h1 className="text-lg md:text-xl mb-4 font-semibold">Quizzes</h1>
         <div className="max-h-96 overflow-y-auto pr-2">
-          {quizFolder.map((folder) => {
+          {quizFolder.length === 0 
+          ? <h1>No quizzes added!</h1>
+          : quizFolder.map((folder) => {
             return(
               <div key={folder._id} className="flex items-center gap-3 mb-3">
                 <input 

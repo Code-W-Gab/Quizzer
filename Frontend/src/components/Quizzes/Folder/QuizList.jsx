@@ -74,7 +74,9 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
     <div>
       {/* Table to Desktop Size */}
       <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 items-start">
-        {quizFolder.map((folder) => {
+        {quizFolder.length === 0
+        ? <h1 className="text-xl px-3 font-semibold dark:text-white">No quiz added!</h1>
+        : quizFolder.map((folder) => {
           const questionCount = questionCounts[folder._id] || 0
           
           return(
@@ -97,7 +99,9 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
       </div>
       {/* Mobile size */}
       <div className="md:hidden">
-        {quizFolder.map((folder) => {
+        {quizFolder.length === 0
+        ? <h1 className='text-lg px-3'>No quiz added!</h1>
+        : quizFolder.map((folder) => {
           const questionCount = questionCounts[folder._id] || 0
 
           return(
