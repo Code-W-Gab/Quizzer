@@ -37,69 +37,150 @@ export default function Register() {
       })
   }
   return(
-    <main className="flex items-center justify-center min-h-screen">
-      <div className="bg-white p-6 w-90 rounded-md">
-        <h1 className="text-center text-xl font-bold mb-4">Register</h1>
-        <div className="relative mb-6">
-          <input 
-            className="border-b-2 w-full pt-4 pb-1 border-b-gray-600  text-sm focus:outline-none peer placeholder-transparent
-                    focus:border-green-600"
-            value={name}
-            onChange={(e) => setName(e.target.value)} 
-            type="text"
-            placeholder="Full Name"
-            id="fullname"
-          />
-          <label 
-            htmlFor="fullname"
-            className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600  transition-all
-                       peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
-                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600"
-          >
-            Name
-          </label>
+    <main 
+      className="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/bg-img.jpg)' }}
+    > 
+      {/* Desktop to table size login */}
+      <div className="hidden md:flex rounded-tl-lg rounded-tb-lg bg-blue-500 h-100">
+        <div className="p-6 text-center w-130 mt-20 text-white">
+          <h1 className="text-4xl font-bold mb-4">Welcome to ChesQuiz!</h1>
+          <p className="text-lg">Create, share, and take quizzes anytime, anywhere.</p>
         </div>
-        <div className="relative mb-6">
-          <input 
-            className="border-b-2 w-full pt-4 pb-1 border-b-gray-600  text-sm focus:outline-none peer placeholder-transparent
-                    focus:border-green-600"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}  
-            type="text"
-            placeholder="Email"
-            id="email"
-          />
-          <label 
-            htmlFor="email"
-            className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600  transition-all
-                       peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
-                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600"
-          >
-            Email
-          </label>
+        <div className="flex items-center justify-center w-100 bg-white rounded-br-lg rounded-tr-lg">
+          <div className="p-6 w-90">
+            <h1 className="text-center text-xl font-bold mb-4">Register</h1>
+            <div className="relative mb-6">
+              <input 
+                className="border-b-2 w-full pt-4 pb-1 border-b-gray-600  text-sm focus:outline-none peer placeholder-transparent
+                        focus:border-blue-600"
+                value={name}
+                onChange={(e) => setName(e.target.value)} 
+                type="text"
+                placeholder="Full Name"
+                id="fullname"
+              />
+              <label 
+                htmlFor="fullname"
+                className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600  transition-all
+                          peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
+                          peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-600"
+              >
+                Name
+              </label>
+            </div>
+            <div className="relative mb-6">
+              <input 
+                className="cursor-pointer border-b-2 w-full pt-4 pb-1 border-b-gray-600  text-sm focus:outline-none peer placeholder-transparent
+                        focus:border-blue-600 " 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="Email"
+                id="email"
+              />
+              <label 
+                htmlFor="email"
+                className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600  transition-all
+                          peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
+                          peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-600"
+              >
+                Email
+              </label>
+            </div>
+            <div className="relative mb-6">
+              <input 
+                className="cursor-pointer border-b-2 w-full pt-4 pb-1 border-b-gray-600  text-sm focus:outline-none peer placeholder-transparent
+                        focus:border-blue-600 " 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}        
+                type="text"
+                placeholder="Password"
+                id="pass"
+              />
+              <label 
+                htmlFor="pass"
+                className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600  transition-all
+                          peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
+                          peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-600"
+              >
+                Password
+              </label>
+            </div>
+            <div>
+              <button className="bg-blue-600 cursor-pointer text-white w-full rounded-md py-1.5 mb-2" onClick={handleRegister}>Create</button>
+              <p className="text-center text-sm">Already have an account? <Link to={"/Auth/Login"} className="underline">Login</Link></p>
+            </div>
+          </div>
         </div>
-        <div className="relative mb-6">
-          <input 
-            className="border-b-2 w-full pt-4 pb-1 border-b-gray-600  text-sm focus:outline-none peer placeholder-transparent
-                    focus:border-green-600"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}  
-            type="text"
-            placeholder="Password"
-            id="pass"
-          />
-          <label 
-            htmlFor="pass"
-            className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600  transition-all
-                       peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
-                       peer-focus:-top-3 peer-focus:text-sm peer-focus:text-green-600"
-          >
-            Password
-          </label>
-        </div>
-        <div>
-          <button className="bg-amber-300 w-full rounded-md py-1.5 mb-2" onClick={handleRegister}>Create</button>
-          <p className="text-center">Already have an account? <Link to={"/Auth/Login"} className="underline">Login</Link></p>
+      </div>
+
+      {/* Mobile Login */}
+      <div className="md:hidden">
+        <div className="bg-white p-6 w-90 rounded-md">
+          <h1 className="text-center text-xl font-bold mb-4 text-blue-500 ">Welcome to ChesQuiz</h1>
+          <h1 className="text-center text-lg font-semibold mb-4">Register</h1>
+          <div className="relative mb-6">
+            <input 
+              className="border-b-2 w-full pt-4 pb-1 border-b-gray-600  text-sm focus:outline-none peer placeholder-transparent
+                      focus:border-blue-600"
+              value={name}
+              onChange={(e) => setName(e.target.value)} 
+              type="text"
+              placeholder="Full Name"
+              id="fullname"
+            />
+            <label 
+              htmlFor="fullname"
+              className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600  transition-all
+                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
+                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-600"
+            >
+              Name
+            </label>
+          </div>
+          <div className="relative mb-6">
+            <input 
+              className="border-b-2 w-full pt-4 pb-1 border-b-gray-600  text-sm focus:outline-none peer placeholder-transparent
+                      focus:border-blue-600 " 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder="Email"
+              id="email"
+            />
+            <label 
+              htmlFor="email"
+              className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600  transition-all
+                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
+                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-600"
+            >
+              Email
+            </label>
+          </div>
+          <div className="relative mb-6">
+            <input 
+              className="border-b-2 w-full pt-4 pb-1 border-b-gray-600  text-sm focus:outline-none peer placeholder-transparent
+                      focus:border-blue-600 " 
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}        
+              type="text"
+              placeholder="Password"
+              id="pass"
+            />
+            <label 
+              htmlFor="pass"
+              className="absolute left-0 -top-3 text-xs md:text-sm text-gray-600  transition-all
+                        peer-placeholder-shown:text-lg peer-placeholder-shown:top-2
+                        peer-focus:-top-3 peer-focus:text-sm peer-focus:text-blue-600"
+            >
+              Password
+            </label>
+          </div>
+          <div>
+            <button className="bg-blue-500 w-full rounded-md py-1.5 mb-2 text-white" onClick={handleRegister}>Create</button>
+            <p className="text-center">Don't have an account? <Link to={"/Auth/Login"} className="underline">Login</Link></p>
+          </div>
         </div>
       </div>
     </main>

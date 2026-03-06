@@ -99,7 +99,7 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
       {/* Mobile size */}
       <div className="md:hidden">
         {quizFolder.length === 0
-        ? <h1 className='text-lg px-3'>No quiz added!</h1>
+        ? <h1 className='text-lg px-3 dark:text-white'>No quiz added!</h1>
         : quizFolder.map((folder) => {
           const questionCount = questionCounts[folder._id] || 0
 
