@@ -60,23 +60,6 @@ export default function Header() {
         <div>
           <h1 className='text-white font-semibold text-lg'>ChesQuiz</h1>
         </div>
-        {/* <div className='flex items-center gap-3'>
-          <button>
-            <Download size={25} 
-              onClick={() => setShowImportDialog(true)}
-              className='text-white'
-            />
-          </button>
-          <button 
-            onClick={toggleDarkMode}
-            className='cursor-pointer'
-          >
-            {isDarkMode ? <Sun size={25} className='text-yellow-400'/> : <Moon size={25}/>}
-          </button>
-          <button onClick={() => handleLogout()}>
-            <LogOut size={25} className='text-white'/>
-          </button>
-        </div> */}
         <MobileEllipsisHeader
           onImport={() => setShowImportDialog(true)}
           onToggle={() => toggleDarkMode()}

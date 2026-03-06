@@ -1,7 +1,7 @@
 import { Moon, Download } from 'lucide-react'; 
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import quiz from '../../assets/quiz-icon.png';
+import quiz from '/quiz-icon.png';
 import User from './User';
 import ImportQuizDialog from '../Quizzes/Quiz/ImportQuizDialog'; 
 import { importQuizByShareCode } from '../../services/quizService'; 
