@@ -7,7 +7,9 @@ export default function Register() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
+
 
   function handleRegister(e) {
     e.preventDefault()
@@ -22,6 +24,8 @@ export default function Register() {
       return
     }
 
+    setLoading(true)  
+
     register(name, email, password)
       .then(res => {
         toast.success("User created successfully!")
@@ -34,6 +38,11 @@ export default function Register() {
         if (err.response && err.response.status === 400) {
           toast.error(err.response.data.message || "User already exists")
         }
+        setLoading(false) 
+      })
+      .finally(() => {
+        // Optional: This runs after success or error
+        setTimeout(() => setLoading(false), 500)
       })
   }
   return(
@@ -183,6 +192,16 @@ export default function Register() {
           </div>
         </div>
       </div>
+
+      {/* Loading Overlay */}
+      {loading && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg shadow-2xl flex flex-col items-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-500"></div>
+            <p className="mt-4 text-gray-700 font-semibold">Logging in...</p>
+          </div>
+        </div>
+      )}
     </main>
   )
 }

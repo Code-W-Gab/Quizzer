@@ -1,13 +1,13 @@
 import AddQuestionFolder from "./AddQuestionFolder";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
-import EllipsisNavbar from "../../Common/EllipsisNavbar";
 import { deleteQuestion } from "../../../services/questionService";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import EditQuestionDialog from "./EditQuestionDialog";
 import Delete from "../../Common/Delete";
 import MobileEllipsisNavbarQuestion from "../../Common/MobileEllipsisNavBarQuestion";
+import EllipsisNavbarQuestion from "../../Common/EllipsisNavbarQuestion";
 
 export default function QuestionList({questionFolder, getAllQuizByFolder}) {
   const { name } = useParams()
@@ -46,7 +46,7 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
           : questionFolder.map((folder) => {
             return(
               <div key={folder._id} className="bg-gray-300 dark:bg-gray-600 dark:text-white p-2 md:p-3 rounded-md relative">
-                <EllipsisNavbar 
+                <EllipsisNavbarQuestion 
                   onDelete={() => {
                     setIsDeleteModalOpen(true)
                     setSelectedId(folder._id)

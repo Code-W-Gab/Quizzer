@@ -7,6 +7,7 @@ export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
 
   function handleLogin(e) {
     e.preventDefault()
@@ -21,6 +22,8 @@ export default function Login() {
       return
     }
 
+    setLoading(true)  
+
     login(email, password)
       .then(res => {
         localStorage.setItem("token", res.data.token);
@@ -30,8 +33,13 @@ export default function Login() {
         navigate("/Exam")
       })
       .catch(err => {
+        setLoading(false) 
         toast.error("Invalid Credential.")
         navigate("/")
+      })
+      .finally(() => {
+        // Optional: This runs after success or error
+        setTimeout(() => setLoading(false), 500)
       })
   }
   return(
@@ -142,6 +150,16 @@ export default function Login() {
           </div>
         </div>
       </div>
+      
+      {/* Loading Overlay */}
+      {loading && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg shadow-2xl flex flex-col items-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-500"></div>
+            <p className="mt-4 text-gray-700 font-semibold">Logging in...</p>
+          </div>
+        </div>
+      )}
     </main>
   )
 }

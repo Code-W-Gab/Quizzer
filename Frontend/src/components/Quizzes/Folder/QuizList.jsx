@@ -86,7 +86,7 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
                   setSelectedId(folder._id)
                 }}
                 onEdit={() => handleEditFolder(folder._id)}
-                
+                onShare={() => setShareDialog(folder)}
               />
               <Link to={`/Quizzes/${folder.name}/${folder._id}`}>
                 <h1 className="text-xl font-semibold mb-1 mt-4 break-all">{folder.name}</h1>
