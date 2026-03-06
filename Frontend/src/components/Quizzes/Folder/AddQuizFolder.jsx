@@ -9,7 +9,6 @@ export default function AddQuizFolder({ onClose, fetchQuizFolder }) {
   function handleAddFolder() {
     addQuizFolder(folderName)
       .then(res => {
-        console.log(res)
         onClose()
         toast.success("Quiz Folder Successfully Created")
         fetchQuizFolder()

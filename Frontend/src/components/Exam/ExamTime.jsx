@@ -50,7 +50,6 @@ export default function ExamTime() {
       setLoading(false);
     } catch (error) {
       toast.error("Failed to load questions");
-      console.error(error);
       setLoading(false);
     }
   };

@@ -59,7 +59,6 @@ export default function QuizList({quizFolder, fetchQuizFolder}) {
     deleteQuizFolder(folderId)
       .then(res => {
         toast.success("Folder successfully deleted!")
-        console.log(res)
         fetchQuizFolder()
         setIsDeleteModalOpen(false)
       }).catch(err => console.log(err))

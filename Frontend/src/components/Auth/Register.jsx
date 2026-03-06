@@ -29,7 +29,6 @@ export default function Register() {
         setEmail("")
         setPassword("")
         navigate("/")
-        console.log(res)
       })
       .catch(err => {
         if (err.response && err.response.status === 400) {

@@ -11,7 +11,6 @@ export default function TrueFalseDialog({onClose, getAllQuizByFolder}) {
   function handleAddTrueFalse() {
     createTrueFalseQuestion(id, question, correctAnswer)
       .then(res => {
-        console.log(res)
         toast.success("Added Successfully")
         onClose()
         getAllQuizByFolder()

@@ -24,7 +24,6 @@ export default function EditQuestionDialog({ question, onClose, getAllQuizByFold
     editQuestion(question._id, questionData)
       .then(res => {
         toast.success("Question successfully updated!")
-        console.log(res)
         onClose()
         getAllQuizByFolder()
       })

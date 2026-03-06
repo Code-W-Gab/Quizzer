@@ -21,7 +21,6 @@ export default function QuestionList({questionFolder, getAllQuizByFolder}) {
       .then(res => {
         toast.success("Question Successfully Deleted!")
         setIsDeleteModalOpen(false)
-        console.log(res)
         getAllQuizByFolder()
       }).catch(err => console.log(err))
   }

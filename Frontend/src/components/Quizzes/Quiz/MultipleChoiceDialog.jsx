@@ -14,7 +14,6 @@ export default function MultipleChoiceDialog({onClose, getAllQuizByFolder}) {
   function handleAddMultipleChoice() {
     createMultipleChoiceQuestion(id, question, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3)
       .then(res => {
-        console.log(res)
         toast.success("Added Successfully")
         onClose()
         getAllQuizByFolder()

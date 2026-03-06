@@ -12,7 +12,6 @@ export default function ShortTextDialog({onClose, getAllQuizByFolder}) {
     createShortTextQuestion(id, question, correctAnswer)
       .then(res => {
         toast.success("Added Successfully")
-        console.log(res)
         onClose()
         getAllQuizByFolder()
       })

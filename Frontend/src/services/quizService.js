@@ -39,18 +39,18 @@ export const createTrueFalseQuestion = (id, question, correctAnswer) => api.post
 
 // Generate share code for a quiz folder
 export const generateShareCode = async (folderId) => {
-  const response = await api.post(`/api/quiz/folder/${folderId}/share`); // ✅ Add /api
+  const response = await api.post(`/api/quiz/folder/${folderId}/share`); 
   return response.data;
 };
 
 // Import quiz folder using share code
 export const importQuizByShareCode = async (shareCode) => {
-  const response = await api.post('/api/quiz/folder/import', { shareCode }); // ✅ Add /api
+  const response = await api.post('/api/quiz/folder/import', { shareCode }); 
   return response.data;
 };
 
 // Disable sharing for a quiz folder
 export const disableSharing = async (folderId) => {
-  const response = await api.delete(`/api/quiz/folder/${folderId}/share`); // ✅ Add /api
+  const response = await api.delete(`/api/quiz/folder/${folderId}/share`);
   return response.data;
 };

@@ -20,7 +20,6 @@ export default function EditQuizFolder({folderId, onClose, fetchQuizFolder}) {
     editQuizFolder(folderId, folderName)
       .then(res => {
         toast.success("Folder successfully updated!")
-        console.log(res)
         onClose()
         fetchQuizFolder()
       })
