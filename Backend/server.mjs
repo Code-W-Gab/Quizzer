@@ -9,7 +9,11 @@ import userRoutes from './routes/userRoutes.mjs'
 const app = express()
 app.use(express.json())
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: [
+    process.env.FRONTEND_URL,
+    'https://chesquiz.vercel.app',
+    /\.vercel\.app$/  // Allows all Vercel preview URLs
+  ],
   credentials: true
 }))
 
