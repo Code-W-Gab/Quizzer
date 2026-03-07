@@ -80,7 +80,6 @@ export const importQuizByShareCode = async (req, res) => {
       name: originalFolder.name,
       user: req.user.id,
       isShared: false, // The copy is not shared by default
-      shareCode: null,
       sharedBy: originalFolder.sharedBy // Track who originally created it
     });
 
