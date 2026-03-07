@@ -2,7 +2,8 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import profile from '../../assets/profile.jpg';
 import { LogOut } from "lucide-react";
 
-export default function User({logout}) {
+export default function User({logout, userName}) {
+
   return (
     <Menu>
       <MenuButton>
@@ -18,7 +19,7 @@ export default function User({logout}) {
       >
         <MenuItem>
           <div className="px-1 py-2 border-b border-gray-400 mb-1">
-            <h1 className="font-semibold text-white dark:text-black">Gabriel Concepcion</h1>
+            <h1 className="font-semibold break-all text-center text-white dark:text-black">{userName}</h1>
           </div>
         </MenuItem>
         <MenuItem>

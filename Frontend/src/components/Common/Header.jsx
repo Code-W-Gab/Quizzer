@@ -6,6 +6,7 @@ import User from './User';
 import ImportQuizDialog from '../Quizzes/Quiz/ImportQuizDialog'; 
 import { importQuizByShareCode } from '../../services/quizService'; 
 import { toast } from 'react-hot-toast'; 
+import { getUserFromToken } from '../../utils/auth';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -14,6 +15,8 @@ export default function Header() {
     return saved === 'true';
   });
   const [showImportDialog, setShowImportDialog] = useState(false); // Add this
+
+  const user = getUserFromToken();
 
   // Toggle function
   const toggleDarkMode = () => {
@@ -95,7 +98,7 @@ export default function Header() {
           <button className='bg-gray-200 hover:bg-gray-100 dark:text-white dark:bg-gray-500 dark:hover:bg-gray-400 p-2 rounded-md cursor-pointer' onClick={toggleDarkMode}>
             <Moon className="size-6" />
           </button>
-          <User logout={() => handleLogout()}/>
+          <User logout={() => handleLogout()} userName={user?.name || 'User'}/>
         </div>
       </div>
 

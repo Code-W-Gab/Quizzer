@@ -1,2 +1,2 @@
-add loading indicator to all specially to login and resgiter
-change the layout of login and register
+1. chnage the profile name
+2. add loading spinner to everything like add, edit, and delete to avoid duplicate
