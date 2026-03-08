@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { editQuizFolder, getQuizFolderById } from '../../../services/quizService'
 import toast from 'react-hot-toast'
 
-export default function EditQuizFolder({folderId, onClose, fetchQuizFolder}) {
+export default function EditQuizFolder({folderId, onClose, fetchQuizFolder, setLoading}) {
   const [folderName, setFolderName] = useState("")
 
   function fetchQuizFolderById() {
@@ -17,13 +17,16 @@ export default function EditQuizFolder({folderId, onClose, fetchQuizFolder}) {
   }, [])
 
   function handleSave() {
+    setLoading(true)
     editQuizFolder(folderId, folderName)
       .then(res => {
         toast.success("Folder successfully updated!")
         onClose()
         fetchQuizFolder()
+        setLoading(false)
       })
       .catch(err => {
+        setLoading(false)
         toast.error("Failed to update folder")
         console.log(err)
       })
