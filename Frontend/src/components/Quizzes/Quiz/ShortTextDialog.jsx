@@ -6,16 +6,22 @@ import toast from "react-hot-toast"
 export default function ShortTextDialog({onClose, getAllQuizByFolder}) {
   const [question, setQuestion] = useState("")
   const [correctAnswer, setCorrectAnswer] = useState("")
+  const [loading, setLoading] = useState(false)
   const { id } = useParams()
 
   function handleAddShortText() {
+    setLoading(true)
     createShortTextQuestion(id, question, correctAnswer)
       .then(res => {
         toast.success("Added Successfully")
         onClose()
         getAllQuizByFolder()
+        setLoading(false)
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        setLoading(false)
+        console.log(err)
+      })
   }
 
   return(
@@ -68,6 +74,16 @@ export default function ShortTextDialog({onClose, getAllQuizByFolder}) {
           <button onClick={handleAddShortText}>Save</button>
         </div>
       </div>
+
+      {/* Loading Overlay */}
+      {loading && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg shadow-2xl flex flex-col items-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-500"></div>
+            <p className="mt-4 text-gray-700 font-semibold">Logging in...</p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
