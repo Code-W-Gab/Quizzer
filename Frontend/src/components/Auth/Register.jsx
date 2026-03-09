@@ -118,7 +118,7 @@ export default function Register() {
             </div>
             <div>
               <button className="bg-blue-600 cursor-pointer text-white w-full rounded-md py-1.5 mb-2" onClick={handleRegister}>Create</button>
-              <p className="text-center text-sm">Already have an account? <Link to={"/Auth/Login"} className="underline">Login</Link></p>
+              <p className="text-center text-sm">Already have an account? <Link to={"/Auth/Login"} className="underline hover:text-blue-500">Login</Link></p>
             </div>
           </div>
         </div>
@@ -188,7 +188,7 @@ export default function Register() {
           </div>
           <div>
             <button className="bg-blue-500 w-full rounded-md py-1.5 mb-2 text-white" onClick={handleRegister}>Create</button>
-            <p className="text-center">Don't have an account? <Link to={"/Auth/Login"} className="underline">Login</Link></p>
+            <p className="text-center">Don't have an account? <Link to={"/Auth/Login"} className="underline hover:text-blue-500">Login</Link></p>
           </div>
         </div>
       </div>

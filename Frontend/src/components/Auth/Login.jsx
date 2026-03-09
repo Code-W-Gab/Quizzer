@@ -95,7 +95,7 @@ export default function Login() {
             </div>
             <div>
               <button className="bg-blue-600 cursor-pointer text-white w-full rounded-md py-1.5 mb-2" onClick={handleLogin}>Login</button>
-              <p className="text-center text-sm">Don't have an account? <Link to={"/Auth/Registration"} className="underline">Register</Link></p>
+              <p className="text-center text-sm">Don't have an account? <Link to={"/Auth/Registration"} className="underline hover:text-blue-500">Register</Link></p>
             </div>
           </div>
         </div>
@@ -146,7 +146,7 @@ export default function Login() {
           </div>
           <div>
             <button className="bg-blue-500 w-full rounded-md py-1.5 mb-2 text-white" onClick={handleLogin}>Login</button>
-            <p className="text-center">Don't have an account? <Link to={"/Auth/Registration"} className="underline">Register</Link></p>
+            <p className="text-center">Don't have an account? <Link to={"/Auth/Registration"} className="underline hover:text-blue-500">Register</Link></p>
           </div>
         </div>
       </div>
