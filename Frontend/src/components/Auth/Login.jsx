@@ -103,7 +103,7 @@ export default function Login() {
 
       {/* Mobile Login */}
       <div className="md:hidden">
-        <div className="bg-white p-6 w-90 rounded-md">
+        <div className="bg-white p-6 w-85 rounded-md">
           <h1 className="text-center text-xl font-bold mb-4 text-blue-500 ">Welcome to ChesQuiz</h1>
           <h1 className="text-center text-lg font-semibold mb-4">Login</h1>
           <div className="relative mb-6">
