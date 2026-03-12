@@ -95,22 +95,12 @@ export default function Login() {
             </div>
             <div>
               <button className="bg-blue-600 cursor-pointer text-white w-full rounded-md py-1.5 mb-2" onClick={handleLogin}>Login</button>
-              <div className="flex items-center w-full my-4">
-                <div className="flex-1 border-t border-gray-400"></div>
-                <p className="px-4 text-gray-600">or</p>
-                <div className="flex-1 border-t border-gray-400"></div>
-              </div>
-              <button 
-                className="bg-blue-600 cursor-pointer text-white w-full rounded-md py-1.5 mb-2"
-              >
-                <span>Login with Google</span>
-              </button>
               <p className="text-center text-sm">Don't have an account? <Link to={"/Auth/Registration"} className="underline hover:text-blue-500">Register</Link></p>
             </div>
           </div>
         </div>
       </div>
-
+    
       {/* Mobile Login */}
       <div className="md:hidden">
         <div className="bg-white p-6 w-85 rounded-md">
